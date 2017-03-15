@@ -1,0 +1,10 @@
+# This file contains pkgconfig build requirements that get picked up
+# but are undesirable. One entry per line, no whitespace.
+oogtk-mac-integration
+gtk-mac-integration-gtk2
+lcms
+poppler-glib
+pygtk-2.0
+webkit-1.0
+gegl-0.2
+gtk-mac-integration
