@@ -4,12 +4,12 @@
 #
 Name     : gimp
 Version  : 2.8.20
-Release  : 1
+Release  : 2
 URL      : https://download.gimp.org/mirror/pub/gimp/v2.8/gimp-2.8.20.tar.bz2
 Source0  : https://download.gimp.org/mirror/pub/gimp/v2.8/gimp-2.8.20.tar.bz2
 Summary  : GIMP Library
 Group    : Development/Tools
-License  : BSD-3-Clause GPL-3.0 LGPL-3.0
+License  : BSD-3-Clause GPL-2.0 GPL-3.0 LGPL-3.0
 Requires: gimp-bin
 Requires: gimp-lib
 Requires: gimp-data
@@ -127,12 +127,23 @@ locales components for the gimp package.
 
 %build
 export LANG=C
-export SOURCE_DATE_EPOCH=1489612071
+export SOURCE_DATE_EPOCH=1489767378
+export CFLAGS="$CFLAGS -O3 -falign-functions=32 -fno-semantic-interposition "
+export FCFLAGS="$CFLAGS -O3 -falign-functions=32 -fno-semantic-interposition "
+export FFLAGS="$CFLAGS -O3 -falign-functions=32 -fno-semantic-interposition "
+export CXXFLAGS="$CXXFLAGS -O3 -falign-functions=32 -fno-semantic-interposition "
 %reconfigure --disable-static --without-libtiff --disable-python
 make V=1  %{?_smp_mflags}
 
+%check
+export LANG=C
+export http_proxy=http://127.0.0.1:9/
+export https_proxy=http://127.0.0.1:9/
+export no_proxy=localhost
+make VERBOSE=1 V=1 %{?_smp_mflags} check
+
 %install
-export SOURCE_DATE_EPOCH=1489612071
+export SOURCE_DATE_EPOCH=1489767378
 rm -rf %{buildroot}
 %make_install
 %find_lang gimp20
