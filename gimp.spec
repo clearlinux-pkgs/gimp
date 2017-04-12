@@ -4,7 +4,7 @@
 #
 Name     : gimp
 Version  : 2.8.20
-Release  : 4
+Release  : 5
 URL      : https://download.gimp.org/mirror/pub/gimp/v2.8/gimp-2.8.20.tar.bz2
 Source0  : https://download.gimp.org/mirror/pub/gimp/v2.8/gimp-2.8.20.tar.bz2
 Summary  : GIMP Library
@@ -146,13 +146,6 @@ export LDFLAGS="$LDFLAGS  -mavx2 -mfma"
 %reconfigure --disable-static --without-libtiff --disable-python --enable-sse  --libdir=/usr/lib64/avx2
 make V=1  %{?_smp_mflags}
 popd
-
-%check
-export LANG=C
-export http_proxy=http://127.0.0.1:9/
-export https_proxy=http://127.0.0.1:9/
-export no_proxy=localhost
-make VERBOSE=1 V=1 %{?_smp_mflags} check
 
 %install
 export SOURCE_DATE_EPOCH=1491964716
