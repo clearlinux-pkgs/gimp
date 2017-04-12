@@ -1,1 +1,1 @@
---without-libtiff --disable-python
+--without-libtiff --disable-python --enable-sse
