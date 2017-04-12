@@ -202,6 +202,15 @@ popd
 /usr/share/gimp/2.0/tool-presets/*
 /usr/share/gimp/2.0/ui/*
 /usr/share/icons/*
+/usr/share/gimp/2.0/gflare/Bright_Star
+/usr/share/gimp/2.0/gflare/Classic
+/usr/share/gimp/2.0/gflare/Default
+/usr/share/gimp/2.0/gflare/Distant_Sun
+/usr/share/gimp/2.0/gflare/GFlare_101
+/usr/share/gimp/2.0/gflare/GFlare_102
+/usr/share/gimp/2.0/gflare/Hidden_Planet
+/usr/share/gimp/2.0/tags/gimp-tags-default.xml
+/usr/share/gimp/2.0/tips/gimp-tips.xml
 
 
 %files dev
