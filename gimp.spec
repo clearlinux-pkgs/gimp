@@ -258,7 +258,7 @@ popd
 /usr/lib64/libgimpui-2.0.so.0.800.20
 /usr/lib64/libgimpwidgets-2.0.so.0
 /usr/lib64/libgimpwidgets-2.0.so.0.800.20
-/usr/lib54/avx2/
+/usr/lib64/avx2/
 
 %files locales -f gimp20.lang -f gimp20-libgimp.lang -f gimp20-python.lang -f gimp20-script-fu.lang -f gimp20-std-plug-ins.lang -f gimp20-tips.lang
 %defattr(-,root,root,-)
