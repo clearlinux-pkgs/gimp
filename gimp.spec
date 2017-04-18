@@ -4,7 +4,7 @@
 #
 Name     : gimp
 Version  : 2.8.20
-Release  : 8
+Release  : 9
 URL      : https://download.gimp.org/mirror/pub/gimp/v2.8/gimp-2.8.20.tar.bz2
 Source0  : https://download.gimp.org/mirror/pub/gimp/v2.8/gimp-2.8.20.tar.bz2
 Summary  : GIMP Library
