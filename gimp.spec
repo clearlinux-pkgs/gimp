@@ -4,7 +4,7 @@
 #
 Name     : gimp
 Version  : 2.8.20
-Release  : 9
+Release  : 10
 URL      : https://download.gimp.org/mirror/pub/gimp/v2.8/gimp-2.8.20.tar.bz2
 Source0  : https://download.gimp.org/mirror/pub/gimp/v2.8/gimp-2.8.20.tar.bz2
 Summary  : GIMP Library
@@ -60,6 +60,7 @@ BuildRequires : pkgconfig(xfixes)
 BuildRequires : pkgconfig(xmu)
 BuildRequires : pkgconfig(xpm)
 Patch1: 0001-stateless-conversion.patch
+Patch2: 0002-config-Default-to-single-window-mode.patch
 
 %description
 ------------------------------
@@ -124,10 +125,14 @@ locales components for the gimp package.
 %prep
 %setup -q -n gimp-2.8.20
 %patch1 -p1
+%patch2 -p1
 
 %build
+export http_proxy=http://127.0.0.1:9/
+export https_proxy=http://127.0.0.1:9/
+export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1492460898
+export SOURCE_DATE_EPOCH=1492807921
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
 export NM=gcc-nm
@@ -142,11 +147,11 @@ make V=1  %{?_smp_mflags}
 export LANG=C
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
-export no_proxy=localhost
+export no_proxy=localhost,127.0.0.1,0.0.0.0
 make VERBOSE=1 V=1 %{?_smp_mflags} check
 
 %install
-export SOURCE_DATE_EPOCH=1492460898
+export SOURCE_DATE_EPOCH=1492807921
 rm -rf %{buildroot}
 %make_install
 %find_lang gimp20
