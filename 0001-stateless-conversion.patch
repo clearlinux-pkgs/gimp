@@ -1,7 +1,7 @@
-From d017a787801b57566cd56dbcf70507f2a8752460 Mon Sep 17 00:00:00 2001
+From 5b64bb9b532c0540b659064634e8e51559bd8c72 Mon Sep 17 00:00:00 2001
 From: Abraham Duenas <abraham.duenas@intel.com>
 Date: Fri, 10 Mar 2017 14:34:07 -0600
-Subject: [PATCH] stateless conversion
+Subject: [PATCH 1/2] stateless conversion
 
 ---
  configure.ac            |  2 ++
@@ -87,5 +87,5 @@ index 977a660..f1f97ec 100644
  
    return gimp_sysconf_dir;
 -- 
-2.7.4
+2.12.2
 
