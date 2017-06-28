@@ -1,2 +1,3 @@
 0001-stateless-conversion.patch
 0002-config-Default-to-single-window-mode.patch
+fastmath.patch

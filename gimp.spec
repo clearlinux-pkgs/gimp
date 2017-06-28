@@ -4,7 +4,7 @@
 #
 Name     : gimp
 Version  : 2.8.22
-Release  : 13
+Release  : 14
 URL      : https://download.gimp.org/mirror/pub/gimp/v2.8/gimp-2.8.22.tar.bz2
 Source0  : https://download.gimp.org/mirror/pub/gimp/v2.8/gimp-2.8.22.tar.bz2
 Summary  : GIMP Library
@@ -61,6 +61,7 @@ BuildRequires : pkgconfig(xmu)
 BuildRequires : pkgconfig(xpm)
 Patch1: 0001-stateless-conversion.patch
 Patch2: 0002-config-Default-to-single-window-mode.patch
+Patch3: fastmath.patch
 
 %description
 ------------------------------
@@ -126,6 +127,13 @@ locales components for the gimp package.
 %setup -q -n gimp-2.8.22
 %patch1 -p1
 %patch2 -p1
+%patch3 -p1
+
+pushd ..
+cp -a gimp-2.8.22 gimp-2.8.22-avx2
+cp -a gimp-2.8.22 gimp-2.8.22-avx512
+popd
+
 
 %build
 export http_proxy=http://127.0.0.1:9/
@@ -143,6 +151,20 @@ export CXXFLAGS="$CXXFLAGS -O3 -falign-functions=32 -ffat-lto-objects -flto -fno
 %reconfigure --disable-static --without-libtiff --disable-python --enable-sse
 make V=1  %{?_smp_mflags}
 
+pushd ../gimp-2.8.22-avx2
+export CFLAGS="$CFLAGS -march=haswell "
+export CXXFLAGS="$CXXFLAGS -O3 -march=haswell "
+%reconfigure --disable-static --without-libtiff --disable-python --enable-sse
+make V=1  %{?_smp_mflags}
+popd
+
+pushd ../gimp-2.8.22-avx512
+export CFLAGS="$CFLAGS -march=haswell "
+export CXXFLAGS="$CXXFLAGS -O3 -march=haswell "
+%reconfigure --disable-static --without-libtiff --disable-python --enable-sse
+make V=1  %{?_smp_mflags}
+popd
+
 %check
 export LANG=C
 export http_proxy=http://127.0.0.1:9/
@@ -153,6 +175,18 @@ make VERBOSE=1 V=1 %{?_smp_mflags} check
 %install
 export SOURCE_DATE_EPOCH=1496420075
 rm -rf %{buildroot}
+
+mkdir %{buildroot}/usr/lib64/haswell/avx512_1
+pushd ../gimp-2.8.22-avx512
+%make_install
+mv %{buildroot}usr/lib64/*.so*  %{buildroot}/usr/lib64/haswell/avx512_1
+popd
+pushd ../gimp-2.8.22-avx2
+%make_install
+mv %{buildroot}usr/lib64/*.so*  %{buildroot}/usr/lib64/haswell/
+popd
+
+
 %make_install
 %find_lang gimp20
 %find_lang gimp20-libgimp
@@ -163,6 +197,7 @@ rm -rf %{buildroot}
 
 %files
 %defattr(-,root,root,-)
+/usr/lib64/haswell
 /usr/lib64/gimp/2.0/environ/default.env
 /usr/lib64/gimp/2.0/interpreters/default.interp
 /usr/lib64/gimp/2.0/plug-ins/alien-map
