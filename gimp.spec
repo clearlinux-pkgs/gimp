@@ -4,7 +4,7 @@
 #
 Name     : gimp
 Version  : 2.8.22
-Release  : 18
+Release  : 19
 URL      : https://download.gimp.org/mirror/pub/gimp/v2.8/gimp-2.8.22.tar.bz2
 Source0  : https://download.gimp.org/mirror/pub/gimp/v2.8/gimp-2.8.22.tar.bz2
 Summary  : GIMP Library
@@ -157,7 +157,7 @@ make V=1  %{?_smp_mflags}
 popd
 
 pushd ../gimp-2.8.22-avx512
-export CFLAGS="$CFLAGS -march=haswell "
+export CFLAGS="$CFLAGS -march=skylake-avx512 "
 export CXXFLAGS="$CXXFLAGS -O3 -march=skylake-avx512 "
 %reconfigure --disable-static --without-libtiff --disable-python --enable-sse
 make V=1  %{?_smp_mflags}
