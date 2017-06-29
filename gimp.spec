@@ -4,7 +4,7 @@
 #
 Name     : gimp
 Version  : 2.8.22
-Release  : 16
+Release  : 17
 URL      : https://download.gimp.org/mirror/pub/gimp/v2.8/gimp-2.8.22.tar.bz2
 Source0  : https://download.gimp.org/mirror/pub/gimp/v2.8/gimp-2.8.22.tar.bz2
 Summary  : GIMP Library
@@ -176,7 +176,7 @@ make VERBOSE=1 V=1 %{?_smp_mflags} check
 export SOURCE_DATE_EPOCH=1496420075
 rm -rf %{buildroot}
 
-mkdir %{buildroot}/usr/lib64/haswell/avx512_1
+mkdir -p %{buildroot}/usr/lib64/haswell/avx512_1
 pushd ../gimp-2.8.22-avx512
 %make_install
 mv %{buildroot}usr/lib64/*.so*  %{buildroot}/usr/lib64/haswell/avx512_1
