@@ -4,7 +4,7 @@
 #
 Name     : gimp
 Version  : 2.8.22
-Release  : 17
+Release  : 18
 URL      : https://download.gimp.org/mirror/pub/gimp/v2.8/gimp-2.8.22.tar.bz2
 Source0  : https://download.gimp.org/mirror/pub/gimp/v2.8/gimp-2.8.22.tar.bz2
 Summary  : GIMP Library
@@ -61,7 +61,6 @@ BuildRequires : pkgconfig(xmu)
 BuildRequires : pkgconfig(xpm)
 Patch1: 0001-stateless-conversion.patch
 Patch2: 0002-config-Default-to-single-window-mode.patch
-Patch3: fastmath.patch
 
 %description
 ------------------------------
@@ -127,7 +126,6 @@ locales components for the gimp package.
 %setup -q -n gimp-2.8.22
 %patch1 -p1
 %patch2 -p1
-%patch3 -p1
 
 pushd ..
 cp -a gimp-2.8.22 gimp-2.8.22-avx2
@@ -179,11 +177,11 @@ rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/lib64/haswell/avx512_1
 pushd ../gimp-2.8.22-avx512
 %make_install
-mv %{buildroot}usr/lib64/*.so*  %{buildroot}/usr/lib64/haswell/avx512_1
+mv %{buildroot}/usr/lib64/*.so*  %{buildroot}/usr/lib64/haswell/avx512_1
 popd
 pushd ../gimp-2.8.22-avx2
 %make_install
-mv %{buildroot}usr/lib64/*.so*  %{buildroot}/usr/lib64/haswell/
+mv %{buildroot}/usr/lib64/*.so*  %{buildroot}/usr/lib64/haswell/
 popd
 
 
