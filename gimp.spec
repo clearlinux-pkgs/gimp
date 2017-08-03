@@ -4,7 +4,7 @@
 #
 Name     : gimp
 Version  : 2.8.22
-Release  : 20
+Release  : 21
 URL      : https://download.gimp.org/mirror/pub/gimp/v2.8/gimp-2.8.22.tar.bz2
 Source0  : https://download.gimp.org/mirror/pub/gimp/v2.8/gimp-2.8.22.tar.bz2
 Summary  : GIMP Library
@@ -59,6 +59,8 @@ BuildRequires : pkgconfig(xcursor)
 BuildRequires : pkgconfig(xfixes)
 BuildRequires : pkgconfig(xmu)
 BuildRequires : pkgconfig(xpm)
+BuildRequires : webkitgtk-dev
+BuildRequires : lcms2-dev
 Patch1: 0001-stateless-conversion.patch
 Patch2: 0002-config-Default-to-single-window-mode.patch
 
@@ -156,13 +158,6 @@ export CXXFLAGS="$CXXFLAGS -O3 -march=haswell "
 make V=1  %{?_smp_mflags}
 popd
 
-pushd ../gimp-2.8.22-avx512
-export CFLAGS="$CFLAGS -march=skylake-avx512 "
-export CXXFLAGS="$CXXFLAGS -O3 -march=skylake-avx512 "
-%reconfigure --disable-static --without-libtiff --disable-python --enable-sse
-make V=1  %{?_smp_mflags}
-popd
-
 %check
 export LANG=C
 export http_proxy=http://127.0.0.1:9/
@@ -175,10 +170,6 @@ export SOURCE_DATE_EPOCH=1496420075
 rm -rf %{buildroot}
 
 mkdir -p %{buildroot}/usr/lib64/haswell/avx512_1
-pushd ../gimp-2.8.22-avx512
-%make_install
-mv %{buildroot}/usr/lib64/*.so*  %{buildroot}/usr/lib64/haswell/avx512_1
-popd
 pushd ../gimp-2.8.22-avx2
 %make_install
 mv %{buildroot}/usr/lib64/*.so*  %{buildroot}/usr/lib64/haswell/
