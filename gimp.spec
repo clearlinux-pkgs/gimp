@@ -4,7 +4,7 @@
 #
 Name     : gimp
 Version  : 2.8.22
-Release  : 22
+Release  : 23
 URL      : https://download.gimp.org/mirror/pub/gimp/v2.8/gimp-2.8.22.tar.bz2
 Source0  : https://download.gimp.org/mirror/pub/gimp/v2.8/gimp-2.8.22.tar.bz2
 Summary  : GIMP Library
@@ -154,7 +154,7 @@ pushd ../buildavx2/
 export CFLAGS="$CFLAGS -m64 -march=haswell"
 export CXXFLAGS="$CXXFLAGS -m64 -march=haswell"
 export LDFLAGS="$LDFLAGS -m64 -march=haswell"
-%reconfigure --disable-static --without-libtiff --disable-python --enable-sse   --libdir=/usr/lib64/haswell
+%reconfigure --disable-static --without-libtiff --disable-python --enable-sse   --libdir=/usr/lib64/haswell --bindir=/usr/bin/haswell
 make V=1  %{?_smp_mflags}
 popd
 
@@ -526,6 +526,11 @@ popd
 /usr/bin/gimp-console
 /usr/bin/gimp-console-2.8
 /usr/bin/gimptool-2.0
+/usr/bin/haswell/gimp
+/usr/bin/haswell/gimp-2.8
+/usr/bin/haswell/gimp-console
+/usr/bin/haswell/gimp-console-2.8
+/usr/bin/haswell/gimptool-2.0
 
 %files data
 %defattr(-,root,root,-)
