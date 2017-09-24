@@ -4,7 +4,7 @@
 #
 Name     : gimp
 Version  : 2.8.22
-Release  : 23
+Release  : 24
 URL      : https://download.gimp.org/mirror/pub/gimp/v2.8/gimp-2.8.22.tar.bz2
 Source0  : https://download.gimp.org/mirror/pub/gimp/v2.8/gimp-2.8.22.tar.bz2
 Summary  : GIMP Library
@@ -140,7 +140,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1506274073
+export SOURCE_DATE_EPOCH=1506292209
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
 export NM=gcc-nm
@@ -148,13 +148,13 @@ export CFLAGS="$CFLAGS -O3 -falign-functions=32 -ffat-lto-objects -flto=4 -fno-m
 export FCFLAGS="$CFLAGS -O3 -falign-functions=32 -ffat-lto-objects -flto=4 -fno-math-errno -fno-semantic-interposition -fno-trapping-math "
 export FFLAGS="$CFLAGS -O3 -falign-functions=32 -ffat-lto-objects -flto=4 -fno-math-errno -fno-semantic-interposition -fno-trapping-math "
 export CXXFLAGS="$CXXFLAGS -O3 -falign-functions=32 -ffat-lto-objects -flto=4 -fno-math-errno -fno-semantic-interposition -fno-trapping-math "
-%reconfigure --disable-static --without-libtiff --disable-python --enable-sse
+%reconfigure --disable-static --without-libtiff --disable-python --enable-sse --with-script-fu
 make V=1  %{?_smp_mflags}
 pushd ../buildavx2/
 export CFLAGS="$CFLAGS -m64 -march=haswell"
 export CXXFLAGS="$CXXFLAGS -m64 -march=haswell"
 export LDFLAGS="$LDFLAGS -m64 -march=haswell"
-%reconfigure --disable-static --without-libtiff --disable-python --enable-sse   --libdir=/usr/lib64/haswell --bindir=/usr/bin/haswell
+%reconfigure --disable-static --without-libtiff --disable-python --enable-sse --with-script-fu   --libdir=/usr/lib64/haswell --bindir=/usr/bin/haswell
 make V=1  %{?_smp_mflags}
 popd
 
@@ -166,7 +166,7 @@ export no_proxy=localhost,127.0.0.1,0.0.0.0
 make VERBOSE=1 V=1 %{?_smp_mflags} check
 
 %install
-export SOURCE_DATE_EPOCH=1506274073
+export SOURCE_DATE_EPOCH=1506292209
 rm -rf %{buildroot}
 pushd ../buildavx2/
 %make_install
