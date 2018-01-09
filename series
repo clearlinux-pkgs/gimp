@@ -1,3 +1,9 @@
 0001-stateless-conversion.patch
 0002-config-Default-to-single-window-mode.patch
 fastmath.patch
+cve-2017-17784.patch
+cve-2017-17785.patch
+cve-2017-17786.patch
+cve-2017-17787.patch
+cve-2017-17788.patch
+cve-2017-17789.patch

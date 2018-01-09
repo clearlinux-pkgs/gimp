@@ -4,7 +4,7 @@
 #
 Name     : gimp
 Version  : 2.8.22
-Release  : 24
+Release  : 25
 URL      : https://download.gimp.org/mirror/pub/gimp/v2.8/gimp-2.8.22.tar.bz2
 Source0  : https://download.gimp.org/mirror/pub/gimp/v2.8/gimp-2.8.22.tar.bz2
 Summary  : GIMP Library
@@ -65,6 +65,12 @@ BuildRequires : webkitgtk-dev
 Patch1: 0001-stateless-conversion.patch
 Patch2: 0002-config-Default-to-single-window-mode.patch
 Patch3: fastmath.patch
+Patch4: cve-2017-17784.patch
+Patch5: cve-2017-17785.patch
+Patch6: cve-2017-17786.patch
+Patch7: cve-2017-17787.patch
+Patch8: cve-2017-17788.patch
+Patch9: cve-2017-17789.patch
 
 %description
 ------------------------------
@@ -131,6 +137,12 @@ locales components for the gimp package.
 %patch1 -p1
 %patch2 -p1
 %patch3 -p1
+%patch4 -p1
+%patch5 -p1
+%patch6 -p1
+%patch7 -p1
+%patch8 -p1
+%patch9 -p1
 pushd ..
 cp -a gimp-2.8.22 buildavx2
 popd
@@ -140,22 +152,22 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1506292209
+export SOURCE_DATE_EPOCH=1515508954
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
 export NM=gcc-nm
-export CFLAGS="$CFLAGS -O3 -falign-functions=32 -ffat-lto-objects -flto=4 -fno-math-errno -fno-semantic-interposition -fno-trapping-math "
-export FCFLAGS="$CFLAGS -O3 -falign-functions=32 -ffat-lto-objects -flto=4 -fno-math-errno -fno-semantic-interposition -fno-trapping-math "
-export FFLAGS="$CFLAGS -O3 -falign-functions=32 -ffat-lto-objects -flto=4 -fno-math-errno -fno-semantic-interposition -fno-trapping-math "
-export CXXFLAGS="$CXXFLAGS -O3 -falign-functions=32 -ffat-lto-objects -flto=4 -fno-math-errno -fno-semantic-interposition -fno-trapping-math "
+export CFLAGS="$CFLAGS -O3 -falign-functions=32 -ffat-lto-objects -flto=4 -fno-math-errno -fno-semantic-interposition -fno-trapping-math -fstack-protector-strong "
+export FCFLAGS="$CFLAGS -O3 -falign-functions=32 -ffat-lto-objects -flto=4 -fno-math-errno -fno-semantic-interposition -fno-trapping-math -fstack-protector-strong "
+export FFLAGS="$CFLAGS -O3 -falign-functions=32 -ffat-lto-objects -flto=4 -fno-math-errno -fno-semantic-interposition -fno-trapping-math -fstack-protector-strong "
+export CXXFLAGS="$CXXFLAGS -O3 -falign-functions=32 -ffat-lto-objects -flto=4 -fno-math-errno -fno-semantic-interposition -fno-trapping-math -fstack-protector-strong "
 %reconfigure --disable-static --without-libtiff --disable-python --enable-sse --with-script-fu
-make V=1  %{?_smp_mflags}
+make  %{?_smp_mflags}
 pushd ../buildavx2/
 export CFLAGS="$CFLAGS -m64 -march=haswell"
 export CXXFLAGS="$CXXFLAGS -m64 -march=haswell"
 export LDFLAGS="$LDFLAGS -m64 -march=haswell"
 %reconfigure --disable-static --without-libtiff --disable-python --enable-sse --with-script-fu   --libdir=/usr/lib64/haswell --bindir=/usr/bin/haswell
-make V=1  %{?_smp_mflags}
+make  %{?_smp_mflags}
 popd
 
 %check
@@ -166,7 +178,7 @@ export no_proxy=localhost,127.0.0.1,0.0.0.0
 make VERBOSE=1 V=1 %{?_smp_mflags} check
 
 %install
-export SOURCE_DATE_EPOCH=1506292209
+export SOURCE_DATE_EPOCH=1515508954
 rm -rf %{buildroot}
 pushd ../buildavx2/
 %make_install
