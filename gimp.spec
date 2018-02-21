@@ -4,7 +4,7 @@
 #
 Name     : gimp
 Version  : 2.8.22
-Release  : 27
+Release  : 28
 URL      : https://download.gimp.org/mirror/pub/gimp/v2.8/gimp-2.8.22.tar.bz2
 Source0  : https://download.gimp.org/mirror/pub/gimp/v2.8/gimp-2.8.22.tar.bz2
 Summary  : GIMP Library
@@ -19,9 +19,9 @@ BuildRequires : alsa-lib-dev
 BuildRequires : automake
 BuildRequires : automake-dev
 BuildRequires : bzip2-dev
+BuildRequires : compat-gegl-dev
 BuildRequires : docbook-xml
 BuildRequires : gdk-pixbuf
-BuildRequires : gegl-dev
 BuildRequires : gettext
 BuildRequires : gettext-bin
 BuildRequires : gtk+
@@ -152,7 +152,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1515508954
+export SOURCE_DATE_EPOCH=1519238150
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
 export NM=gcc-nm
@@ -178,7 +178,7 @@ export no_proxy=localhost,127.0.0.1,0.0.0.0
 make VERBOSE=1 V=1 %{?_smp_mflags} check
 
 %install
-export SOURCE_DATE_EPOCH=1515508954
+export SOURCE_DATE_EPOCH=1519238150
 rm -rf %{buildroot}
 pushd ../buildavx2/
 %make_install
@@ -193,6 +193,9 @@ popd
 
 %files
 %defattr(-,root,root,-)
+%exclude /usr/lib64/haswell/pkgconfig/gimp-2.0.pc
+%exclude /usr/lib64/haswell/pkgconfig/gimpthumb-2.0.pc
+%exclude /usr/lib64/haswell/pkgconfig/gimpui-2.0.pc
 /usr/lib64/gimp/2.0/environ/default.env
 /usr/lib64/gimp/2.0/interpreters/default.interp
 /usr/lib64/gimp/2.0/plug-ins/alien-map
@@ -527,9 +530,6 @@ popd
 /usr/lib64/haswell/gimp/2.0/plug-ins/web-browser
 /usr/lib64/haswell/gimp/2.0/plug-ins/whirl-pinch
 /usr/lib64/haswell/gimp/2.0/plug-ins/wind
-/usr/lib64/haswell/pkgconfig/gimp-2.0.pc
-/usr/lib64/haswell/pkgconfig/gimpthumb-2.0.pc
-/usr/lib64/haswell/pkgconfig/gimpui-2.0.pc
 
 %files bin
 %defattr(-,root,root,-)
