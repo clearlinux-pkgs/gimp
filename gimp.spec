@@ -4,7 +4,7 @@
 #
 Name     : gimp
 Version  : 2.8.22
-Release  : 28
+Release  : 29
 URL      : https://download.gimp.org/mirror/pub/gimp/v2.8/gimp-2.8.22.tar.bz2
 Source0  : https://download.gimp.org/mirror/pub/gimp/v2.8/gimp-2.8.22.tar.bz2
 Summary  : GIMP Library
@@ -152,14 +152,14 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1519238150
+export SOURCE_DATE_EPOCH=1522964178
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
 export NM=gcc-nm
-export CFLAGS="$CFLAGS -O3 -falign-functions=32 -ffat-lto-objects -flto=4 -fno-math-errno -fno-semantic-interposition -fno-trapping-math -fstack-protector-strong "
-export FCFLAGS="$CFLAGS -O3 -falign-functions=32 -ffat-lto-objects -flto=4 -fno-math-errno -fno-semantic-interposition -fno-trapping-math -fstack-protector-strong "
-export FFLAGS="$CFLAGS -O3 -falign-functions=32 -ffat-lto-objects -flto=4 -fno-math-errno -fno-semantic-interposition -fno-trapping-math -fstack-protector-strong "
-export CXXFLAGS="$CXXFLAGS -O3 -falign-functions=32 -ffat-lto-objects -flto=4 -fno-math-errno -fno-semantic-interposition -fno-trapping-math -fstack-protector-strong "
+export CFLAGS="$CFLAGS -O3 -falign-functions=32 -ffat-lto-objects -flto=4 -fno-math-errno -fno-semantic-interposition -fno-trapping-math -fstack-protector-strong -mzero-caller-saved-regs "
+export FCFLAGS="$CFLAGS -O3 -falign-functions=32 -ffat-lto-objects -flto=4 -fno-math-errno -fno-semantic-interposition -fno-trapping-math -fstack-protector-strong -mzero-caller-saved-regs "
+export FFLAGS="$CFLAGS -O3 -falign-functions=32 -ffat-lto-objects -flto=4 -fno-math-errno -fno-semantic-interposition -fno-trapping-math -fstack-protector-strong -mzero-caller-saved-regs "
+export CXXFLAGS="$CXXFLAGS -O3 -falign-functions=32 -ffat-lto-objects -flto=4 -fno-math-errno -fno-semantic-interposition -fno-trapping-math -fstack-protector-strong -mzero-caller-saved-regs "
 %reconfigure --disable-static --without-libtiff --disable-python --enable-sse --with-script-fu
 make  %{?_smp_mflags}
 pushd ../buildavx2/
@@ -178,7 +178,7 @@ export no_proxy=localhost,127.0.0.1,0.0.0.0
 make VERBOSE=1 V=1 %{?_smp_mflags} check
 
 %install
-export SOURCE_DATE_EPOCH=1519238150
+export SOURCE_DATE_EPOCH=1522964178
 rm -rf %{buildroot}
 pushd ../buildavx2/
 %make_install
@@ -193,9 +193,6 @@ popd
 
 %files
 %defattr(-,root,root,-)
-%exclude /usr/lib64/haswell/pkgconfig/gimp-2.0.pc
-%exclude /usr/lib64/haswell/pkgconfig/gimpthumb-2.0.pc
-%exclude /usr/lib64/haswell/pkgconfig/gimpui-2.0.pc
 /usr/lib64/gimp/2.0/environ/default.env
 /usr/lib64/gimp/2.0/interpreters/default.interp
 /usr/lib64/gimp/2.0/plug-ins/alien-map
@@ -1458,10 +1455,6 @@ popd
 /usr/lib64/haswell/libgimp-2.0.so
 /usr/lib64/haswell/libgimpbase-2.0.so
 /usr/lib64/haswell/libgimpcolor-2.0.so
-/usr/lib64/haswell/libgimpconfig-2.0.so
-/usr/lib64/haswell/libgimpmath-2.0.so
-/usr/lib64/haswell/libgimpmodule-2.0.so
-/usr/lib64/haswell/libgimpthumb-2.0.so
 /usr/lib64/haswell/libgimpui-2.0.so
 /usr/lib64/haswell/libgimpwidgets-2.0.so
 /usr/lib64/libgimp-2.0.so
@@ -2171,11 +2164,7 @@ popd
 /usr/lib64/haswell/gimp/2.0/modules/libcolor-selector-cmyk.so
 /usr/lib64/haswell/gimp/2.0/modules/libcolor-selector-water.so
 /usr/lib64/haswell/gimp/2.0/modules/libcolor-selector-wheel.so
-/usr/lib64/haswell/gimp/2.0/modules/libcontroller-linux-input.so
-/usr/lib64/haswell/gimp/2.0/modules/libcontroller-midi.so
 /usr/lib64/haswell/gimp/2.0/modules/libdisplay-filter-color-blind.so
-/usr/lib64/haswell/gimp/2.0/modules/libdisplay-filter-gamma.so
-/usr/lib64/haswell/gimp/2.0/modules/libdisplay-filter-high-contrast.so
 /usr/lib64/haswell/gimp/2.0/modules/libdisplay-filter-lcms.so
 /usr/lib64/haswell/gimp/2.0/modules/libdisplay-filter-proof.so
 /usr/lib64/haswell/libgimp-2.0.so.0
@@ -2184,14 +2173,6 @@ popd
 /usr/lib64/haswell/libgimpbase-2.0.so.0.800.22
 /usr/lib64/haswell/libgimpcolor-2.0.so.0
 /usr/lib64/haswell/libgimpcolor-2.0.so.0.800.22
-/usr/lib64/haswell/libgimpconfig-2.0.so.0
-/usr/lib64/haswell/libgimpconfig-2.0.so.0.800.22
-/usr/lib64/haswell/libgimpmath-2.0.so.0
-/usr/lib64/haswell/libgimpmath-2.0.so.0.800.22
-/usr/lib64/haswell/libgimpmodule-2.0.so.0
-/usr/lib64/haswell/libgimpmodule-2.0.so.0.800.22
-/usr/lib64/haswell/libgimpthumb-2.0.so.0
-/usr/lib64/haswell/libgimpthumb-2.0.so.0.800.22
 /usr/lib64/haswell/libgimpui-2.0.so.0
 /usr/lib64/haswell/libgimpui-2.0.so.0.800.22
 /usr/lib64/haswell/libgimpwidgets-2.0.so.0
