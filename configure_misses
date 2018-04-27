@@ -1,5 +1,9 @@
+Configure miss: if compiling for Win32
+Configure miss: if compiling for Mac OS X
 Configure miss: whether to turn on debugging
 Configure miss: whether to turn on profiling
+Configure miss: whether gcc understands -Wstrict-prototypes
+Configure miss: whether gcc understands -Wold-style-definition
 Configure miss: whether gcc understands --omg-optimized
 Configure miss: whether gcc understands --disable-instructions
 Configure miss: whether binary relocation support should be enabled
@@ -9,17 +13,21 @@ Configure miss: whether symbols are prefixed
 Configure miss: gsapi_new_instance in -lgs
 Configure miss: mng_create in -lmng
 Configure miss: aa_printf in -laa
-Configure miss: webkit-1.0 >= 1.6.1
-Configure miss: poppler-glib >= 0.12.4 gthread-2.0
+Configure miss: OPENEXR
+Configure miss: WEBPMUX
+Configure miss: WEBKIT
 Configure miss: libwmf-config
-Configure miss: jas_init in -ljasper
-Configure miss: lcms >= 1.16
-Configure miss: sendmail
-Configure miss: if compiling for Mac OS X
-Configure miss: Mac OS X TWAIN support
+Configure miss: OPENJPEG
+Configure miss: xdg-email
 Configure miss: xvfb-run
+Configure miss: appstream-util
+Configure miss: if building the Windows installer
+Configure miss: if compiling for Win32
+Configure miss: if compiling for Mac OS X
 Configure miss: whether to turn on debugging
 Configure miss: whether to turn on profiling
+Configure miss: whether gcc understands -Wstrict-prototypes
+Configure miss: whether gcc understands -Wold-style-definition
 Configure miss: whether gcc understands --omg-optimized
 Configure miss: whether gcc understands --disable-instructions
 Configure miss: whether binary relocation support should be enabled
@@ -29,12 +37,12 @@ Configure miss: whether symbols are prefixed
 Configure miss: gsapi_new_instance in -lgs
 Configure miss: mng_create in -lmng
 Configure miss: aa_printf in -laa
-Configure miss: webkit-1.0 >= 1.6.1
-Configure miss: poppler-glib >= 0.12.4 gthread-2.0
+Configure miss: OPENEXR
+Configure miss: WEBPMUX
+Configure miss: WEBKIT
 Configure miss: libwmf-config
-Configure miss: jas_init in -ljasper
-Configure miss: lcms >= 1.16
-Configure miss: sendmail
-Configure miss: if compiling for Mac OS X
-Configure miss: Mac OS X TWAIN support
+Configure miss: OPENJPEG
+Configure miss: xdg-email
 Configure miss: xvfb-run
+Configure miss: appstream-util
+Configure miss: if building the Windows installer

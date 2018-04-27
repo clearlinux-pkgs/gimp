@@ -8,3 +8,9 @@ pygtk-2.0
 webkit-1.0
 gegl-0.2
 gtk-mac-integration
+gio-windows-2.0
+libmypaint
+libopenjp2
+mypaint-brushes-1.0
+poppler-data
+OpenEXR

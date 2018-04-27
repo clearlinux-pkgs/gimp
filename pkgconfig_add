@@ -2,4 +2,7 @@
 # not get picked up automatically. One name per line, no whitespace.
 gegl-0.2
 gtk+-2.0
+xpm
 
+xmu
+ice
