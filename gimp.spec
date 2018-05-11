@@ -4,7 +4,7 @@
 #
 Name     : gimp
 Version  : 2.10.0
-Release  : 32
+Release  : 33
 URL      : https://download.gimp.org/mirror/pub/gimp/v2.10/gimp-2.10.0.tar.bz2
 Source0  : https://download.gimp.org/mirror/pub/gimp/v2.10/gimp-2.10.0.tar.bz2
 Summary  : GIMP Library
@@ -145,14 +145,14 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1524873953
+export SOURCE_DATE_EPOCH=1526010229
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
 export NM=gcc-nm
-export CFLAGS="$CFLAGS -O3 -falign-functions=32 -ffat-lto-objects -flto=4 -fno-math-errno -fno-semantic-interposition -fno-trapping-math -fstack-protector-strong -mzero-caller-saved-regs "
-export FCFLAGS="$CFLAGS -O3 -falign-functions=32 -ffat-lto-objects -flto=4 -fno-math-errno -fno-semantic-interposition -fno-trapping-math -fstack-protector-strong -mzero-caller-saved-regs "
-export FFLAGS="$CFLAGS -O3 -falign-functions=32 -ffat-lto-objects -flto=4 -fno-math-errno -fno-semantic-interposition -fno-trapping-math -fstack-protector-strong -mzero-caller-saved-regs "
-export CXXFLAGS="$CXXFLAGS -O3 -falign-functions=32 -ffat-lto-objects -flto=4 -fno-math-errno -fno-semantic-interposition -fno-trapping-math -fstack-protector-strong -mzero-caller-saved-regs "
+export CFLAGS="$CFLAGS -O3 -falign-functions=32 -ffat-lto-objects -flto=4 -fno-math-errno -fno-semantic-interposition -fno-trapping-math -fstack-protector-strong -mzero-caller-saved-regs=used "
+export FCFLAGS="$CFLAGS -O3 -falign-functions=32 -ffat-lto-objects -flto=4 -fno-math-errno -fno-semantic-interposition -fno-trapping-math -fstack-protector-strong -mzero-caller-saved-regs=used "
+export FFLAGS="$CFLAGS -O3 -falign-functions=32 -ffat-lto-objects -flto=4 -fno-math-errno -fno-semantic-interposition -fno-trapping-math -fstack-protector-strong -mzero-caller-saved-regs=used "
+export CXXFLAGS="$CXXFLAGS -O3 -falign-functions=32 -ffat-lto-objects -flto=4 -fno-math-errno -fno-semantic-interposition -fno-trapping-math -fstack-protector-strong -mzero-caller-saved-regs=used "
 %configure --disable-static --without-libtiff --disable-python --enable-sse --with-script-fu --enable-bundled-mypaint-brushes  --without-cairo-pdf --disable-gtk-doc-pdf
 make  %{?_smp_mflags}
 
@@ -172,7 +172,7 @@ export no_proxy=localhost,127.0.0.1,0.0.0.0
 make VERBOSE=1 V=1 %{?_smp_mflags} check || :
 
 %install
-export SOURCE_DATE_EPOCH=1524873953
+export SOURCE_DATE_EPOCH=1526010229
 rm -rf %{buildroot}
 pushd ../buildavx2/
 %make_install
@@ -4222,7 +4222,6 @@ popd
 /usr/lib64/gimp/2.0/modules/libdisplay-filter-color-blind.so
 /usr/lib64/gimp/2.0/modules/libdisplay-filter-gamma.so
 /usr/lib64/gimp/2.0/modules/libdisplay-filter-high-contrast.so
-/usr/lib64/haswell/gimp/2.0/modules/libcolor-selector-cmyk.so
 /usr/lib64/haswell/gimp/2.0/modules/libcolor-selector-water.so
 /usr/lib64/haswell/gimp/2.0/modules/libcolor-selector-wheel.so
 /usr/lib64/haswell/gimp/2.0/modules/libdisplay-filter-clip-warning.so
