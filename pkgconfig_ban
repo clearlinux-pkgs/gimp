@@ -14,3 +14,5 @@ libopenjp2
 mypaint-brushes-1.0
 poppler-data
 OpenEXR
+gegl-gegl_major_minor_version
+libheif

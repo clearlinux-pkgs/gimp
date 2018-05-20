@@ -6,6 +6,10 @@ Configure miss: whether gcc understands -Wstrict-prototypes
 Configure miss: whether gcc understands -Wold-style-definition
 Configure miss: whether gcc understands --omg-optimized
 Configure miss: whether gcc understands --disable-instructions
+Configure miss: sys/thr.h usability
+Configure miss: sys/thr.h presence
+Configure miss: sys/thr.h
+Configure miss: thr_self
 Configure miss: whether binary relocation support should be enabled
 Configure miss: if GTK+ is version 2.26.0 or newer (bogus placeholder check)
 Configure miss: rint
@@ -15,6 +19,7 @@ Configure miss: mng_create in -lmng
 Configure miss: aa_printf in -laa
 Configure miss: OPENEXR
 Configure miss: WEBPMUX
+Configure miss: LIBHEIF
 Configure miss: WEBKIT
 Configure miss: libwmf-config
 Configure miss: OPENJPEG
@@ -30,6 +35,10 @@ Configure miss: whether gcc understands -Wstrict-prototypes
 Configure miss: whether gcc understands -Wold-style-definition
 Configure miss: whether gcc understands --omg-optimized
 Configure miss: whether gcc understands --disable-instructions
+Configure miss: sys/thr.h usability
+Configure miss: sys/thr.h presence
+Configure miss: sys/thr.h
+Configure miss: thr_self
 Configure miss: whether binary relocation support should be enabled
 Configure miss: if GTK+ is version 2.26.0 or newer (bogus placeholder check)
 Configure miss: rint
@@ -39,6 +48,7 @@ Configure miss: mng_create in -lmng
 Configure miss: aa_printf in -laa
 Configure miss: OPENEXR
 Configure miss: WEBPMUX
+Configure miss: LIBHEIF
 Configure miss: WEBKIT
 Configure miss: libwmf-config
 Configure miss: OPENJPEG

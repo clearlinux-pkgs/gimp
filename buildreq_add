@@ -20,3 +20,4 @@ libmypaint-dev
 mypaint-brushes
 mypaint-brushes-dev
 poppler-data-dev
+gegl-dev
