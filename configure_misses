@@ -14,7 +14,7 @@ Configure miss: whether binary relocation support should be enabled
 Configure miss: if GTK+ is version 2.26.0 or newer (bogus placeholder check)
 Configure miss: rint
 Configure miss: whether symbols are prefixed
-Configure miss: gsapi_new_instance in -lgs
+Configure miss: whether we build a relocatable package
 Configure miss: mng_create in -lmng
 Configure miss: aa_printf in -laa
 Configure miss: OPENEXR
@@ -23,9 +23,7 @@ Configure miss: LIBHEIF
 Configure miss: WEBKIT
 Configure miss: libwmf-config
 Configure miss: OPENJPEG
-Configure miss: xdg-email
 Configure miss: xvfb-run
-Configure miss: appstream-util
 Configure miss: if building the Windows installer
 Configure miss: if compiling for Win32
 Configure miss: if compiling for Mac OS X
@@ -43,7 +41,7 @@ Configure miss: whether binary relocation support should be enabled
 Configure miss: if GTK+ is version 2.26.0 or newer (bogus placeholder check)
 Configure miss: rint
 Configure miss: whether symbols are prefixed
-Configure miss: gsapi_new_instance in -lgs
+Configure miss: whether we build a relocatable package
 Configure miss: mng_create in -lmng
 Configure miss: aa_printf in -laa
 Configure miss: OPENEXR
@@ -52,7 +50,5 @@ Configure miss: LIBHEIF
 Configure miss: WEBKIT
 Configure miss: libwmf-config
 Configure miss: OPENJPEG
-Configure miss: xdg-email
 Configure miss: xvfb-run
-Configure miss: appstream-util
 Configure miss: if building the Windows installer
