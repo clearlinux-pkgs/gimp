@@ -4,7 +4,7 @@
 #
 Name     : gimp
 Version  : 2.10.4
-Release  : 38
+Release  : 39
 URL      : https://download.gimp.org/mirror/pub/gimp/v2.10/gimp-2.10.4.tar.bz2
 Source0  : https://download.gimp.org/mirror/pub/gimp/v2.10/gimp-2.10.4.tar.bz2
 Summary  : GIMP Library
