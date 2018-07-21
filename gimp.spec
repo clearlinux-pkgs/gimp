@@ -4,7 +4,7 @@
 #
 Name     : gimp
 Version  : 2.10.4
-Release  : 40
+Release  : 41
 URL      : https://download.gimp.org/mirror/pub/gimp/v2.10/gimp-2.10.4.tar.bz2
 Source0  : https://download.gimp.org/mirror/pub/gimp/v2.10/gimp-2.10.4.tar.bz2
 Summary  : GIMP Library
@@ -172,7 +172,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1530753166
+export SOURCE_DATE_EPOCH=1532209481
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
 export NM=gcc-nm
@@ -188,7 +188,7 @@ pushd ../buildavx2/
 export CFLAGS="$CFLAGS -m64 -march=haswell"
 export CXXFLAGS="$CXXFLAGS -m64 -march=haswell"
 export LDFLAGS="$LDFLAGS -m64 -march=haswell"
-%configure --disable-static --without-libtiff --disable-python --enable-sse --with-script-fu --enable-bundled-mypaint-brushes  --without-cairo-pdf --disable-gtk-doc-pdf   --libdir=/usr/lib64/haswell
+%configure --disable-static --without-libtiff --disable-python --enable-sse --with-script-fu --enable-bundled-mypaint-brushes  --without-cairo-pdf --disable-gtk-doc-pdf
 make  %{?_smp_mflags}
 popd
 %check
@@ -199,7 +199,7 @@ export no_proxy=localhost,127.0.0.1,0.0.0.0
 make VERBOSE=1 V=1 %{?_smp_mflags} check || :
 
 %install
-export SOURCE_DATE_EPOCH=1530753166
+export SOURCE_DATE_EPOCH=1532209481
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/doc/gimp
 cp COPYING %{buildroot}/usr/share/doc/gimp/COPYING
@@ -208,7 +208,7 @@ cp libgimp/COPYING %{buildroot}/usr/share/doc/gimp/libgimp_COPYING
 cp plug-ins/script-fu/tinyscheme/COPYING %{buildroot}/usr/share/doc/gimp/plug-ins_script-fu_tinyscheme_COPYING
 cp plug-ins/script-fu/ftx/LICENSE %{buildroot}/usr/share/doc/gimp/plug-ins_script-fu_ftx_LICENSE
 pushd ../buildavx2/
-%make_install
+%make_install_avx2
 popd
 %make_install
 %find_lang gimp20
@@ -285,6 +285,7 @@ popd
 /usr/lib64/gimp/2.0/plug-ins/file-svg
 /usr/lib64/gimp/2.0/plug-ins/file-tga
 /usr/lib64/gimp/2.0/plug-ins/file-tiff
+/usr/lib64/gimp/2.0/plug-ins/file-webp
 /usr/lib64/gimp/2.0/plug-ins/file-xbm
 /usr/lib64/gimp/2.0/plug-ins/file-xmc
 /usr/lib64/gimp/2.0/plug-ins/file-xpm
@@ -338,124 +339,6 @@ popd
 /usr/lib64/gimp/2.0/plug-ins/warp
 /usr/lib64/gimp/2.0/plug-ins/wavelet-decompose
 /usr/lib64/gimp/2.0/plug-ins/web-browser
-/usr/lib64/haswell/gimp/2.0/environ/default.env
-/usr/lib64/haswell/gimp/2.0/interpreters/default.interp
-/usr/lib64/haswell/gimp/2.0/plug-ins/align-layers
-/usr/lib64/haswell/gimp/2.0/plug-ins/animation-optimize
-/usr/lib64/haswell/gimp/2.0/plug-ins/animation-play
-/usr/lib64/haswell/gimp/2.0/plug-ins/blinds
-/usr/lib64/haswell/gimp/2.0/plug-ins/blur
-/usr/lib64/haswell/gimp/2.0/plug-ins/border-average
-/usr/lib64/haswell/gimp/2.0/plug-ins/busy-dialog
-/usr/lib64/haswell/gimp/2.0/plug-ins/cartoon
-/usr/lib64/haswell/gimp/2.0/plug-ins/checkerboard
-/usr/lib64/haswell/gimp/2.0/plug-ins/cml-explorer
-/usr/lib64/haswell/gimp/2.0/plug-ins/color-cube-analyze
-/usr/lib64/haswell/gimp/2.0/plug-ins/color-enhance
-/usr/lib64/haswell/gimp/2.0/plug-ins/colorify
-/usr/lib64/haswell/gimp/2.0/plug-ins/colormap-remap
-/usr/lib64/haswell/gimp/2.0/plug-ins/compose
-/usr/lib64/haswell/gimp/2.0/plug-ins/contrast-normalize
-/usr/lib64/haswell/gimp/2.0/plug-ins/contrast-retinex
-/usr/lib64/haswell/gimp/2.0/plug-ins/crop-zealous
-/usr/lib64/haswell/gimp/2.0/plug-ins/curve-bend
-/usr/lib64/haswell/gimp/2.0/plug-ins/decompose
-/usr/lib64/haswell/gimp/2.0/plug-ins/depth-merge
-/usr/lib64/haswell/gimp/2.0/plug-ins/despeckle
-/usr/lib64/haswell/gimp/2.0/plug-ins/destripe
-/usr/lib64/haswell/gimp/2.0/plug-ins/edge-dog
-/usr/lib64/haswell/gimp/2.0/plug-ins/edge-neon
-/usr/lib64/haswell/gimp/2.0/plug-ins/emboss
-/usr/lib64/haswell/gimp/2.0/plug-ins/file-bmp
-/usr/lib64/haswell/gimp/2.0/plug-ins/file-cel
-/usr/lib64/haswell/gimp/2.0/plug-ins/file-compressor
-/usr/lib64/haswell/gimp/2.0/plug-ins/file-csource
-/usr/lib64/haswell/gimp/2.0/plug-ins/file-darktable
-/usr/lib64/haswell/gimp/2.0/plug-ins/file-desktop-link
-/usr/lib64/haswell/gimp/2.0/plug-ins/file-dicom
-/usr/lib64/haswell/gimp/2.0/plug-ins/file-faxg3
-/usr/lib64/haswell/gimp/2.0/plug-ins/file-fits
-/usr/lib64/haswell/gimp/2.0/plug-ins/file-fli
-/usr/lib64/haswell/gimp/2.0/plug-ins/file-gbr
-/usr/lib64/haswell/gimp/2.0/plug-ins/file-gegl
-/usr/lib64/haswell/gimp/2.0/plug-ins/file-gif-load
-/usr/lib64/haswell/gimp/2.0/plug-ins/file-gif-save
-/usr/lib64/haswell/gimp/2.0/plug-ins/file-gih
-/usr/lib64/haswell/gimp/2.0/plug-ins/file-glob
-/usr/lib64/haswell/gimp/2.0/plug-ins/file-header
-/usr/lib64/haswell/gimp/2.0/plug-ins/file-html-table
-/usr/lib64/haswell/gimp/2.0/plug-ins/file-ico
-/usr/lib64/haswell/gimp/2.0/plug-ins/file-jpeg
-/usr/lib64/haswell/gimp/2.0/plug-ins/file-pat
-/usr/lib64/haswell/gimp/2.0/plug-ins/file-pcx
-/usr/lib64/haswell/gimp/2.0/plug-ins/file-pdf-load
-/usr/lib64/haswell/gimp/2.0/plug-ins/file-pix
-/usr/lib64/haswell/gimp/2.0/plug-ins/file-png
-/usr/lib64/haswell/gimp/2.0/plug-ins/file-pnm
-/usr/lib64/haswell/gimp/2.0/plug-ins/file-ps
-/usr/lib64/haswell/gimp/2.0/plug-ins/file-psd
-/usr/lib64/haswell/gimp/2.0/plug-ins/file-psp
-/usr/lib64/haswell/gimp/2.0/plug-ins/file-raw-data
-/usr/lib64/haswell/gimp/2.0/plug-ins/file-raw-placeholder
-/usr/lib64/haswell/gimp/2.0/plug-ins/file-rawtherapee
-/usr/lib64/haswell/gimp/2.0/plug-ins/file-sgi
-/usr/lib64/haswell/gimp/2.0/plug-ins/file-sunras
-/usr/lib64/haswell/gimp/2.0/plug-ins/file-svg
-/usr/lib64/haswell/gimp/2.0/plug-ins/file-tga
-/usr/lib64/haswell/gimp/2.0/plug-ins/file-tiff
-/usr/lib64/haswell/gimp/2.0/plug-ins/file-xbm
-/usr/lib64/haswell/gimp/2.0/plug-ins/file-xmc
-/usr/lib64/haswell/gimp/2.0/plug-ins/file-xpm
-/usr/lib64/haswell/gimp/2.0/plug-ins/file-xwd
-/usr/lib64/haswell/gimp/2.0/plug-ins/film
-/usr/lib64/haswell/gimp/2.0/plug-ins/filter-pack
-/usr/lib64/haswell/gimp/2.0/plug-ins/flame
-/usr/lib64/haswell/gimp/2.0/plug-ins/fractal-explorer
-/usr/lib64/haswell/gimp/2.0/plug-ins/fractal-trace
-/usr/lib64/haswell/gimp/2.0/plug-ins/gfig
-/usr/lib64/haswell/gimp/2.0/plug-ins/gimpressionist
-/usr/lib64/haswell/gimp/2.0/plug-ins/goat-exercise
-/usr/lib64/haswell/gimp/2.0/plug-ins/gradient-flare
-/usr/lib64/haswell/gimp/2.0/plug-ins/gradient-map
-/usr/lib64/haswell/gimp/2.0/plug-ins/grid
-/usr/lib64/haswell/gimp/2.0/plug-ins/guillotine
-/usr/lib64/haswell/gimp/2.0/plug-ins/help
-/usr/lib64/haswell/gimp/2.0/plug-ins/hot
-/usr/lib64/haswell/gimp/2.0/plug-ins/ifs-compose
-/usr/lib64/haswell/gimp/2.0/plug-ins/imagemap
-/usr/lib64/haswell/gimp/2.0/plug-ins/jigsaw
-/usr/lib64/haswell/gimp/2.0/plug-ins/lighting
-/usr/lib64/haswell/gimp/2.0/plug-ins/mail
-/usr/lib64/haswell/gimp/2.0/plug-ins/map-object
-/usr/lib64/haswell/gimp/2.0/plug-ins/max-rgb
-/usr/lib64/haswell/gimp/2.0/plug-ins/metadata-editor
-/usr/lib64/haswell/gimp/2.0/plug-ins/metadata-viewer
-/usr/lib64/haswell/gimp/2.0/plug-ins/newsprint
-/usr/lib64/haswell/gimp/2.0/plug-ins/nl-filter
-/usr/lib64/haswell/gimp/2.0/plug-ins/oilify
-/usr/lib64/haswell/gimp/2.0/plug-ins/pagecurl
-/usr/lib64/haswell/gimp/2.0/plug-ins/photocopy
-/usr/lib64/haswell/gimp/2.0/plug-ins/plugin-browser
-/usr/lib64/haswell/gimp/2.0/plug-ins/print
-/usr/lib64/haswell/gimp/2.0/plug-ins/procedure-browser
-/usr/lib64/haswell/gimp/2.0/plug-ins/qbist
-/usr/lib64/haswell/gimp/2.0/plug-ins/sample-colorize
-/usr/lib64/haswell/gimp/2.0/plug-ins/screenshot
-/usr/lib64/haswell/gimp/2.0/plug-ins/script-fu
-/usr/lib64/haswell/gimp/2.0/plug-ins/selection-to-path
-/usr/lib64/haswell/gimp/2.0/plug-ins/sharpen
-/usr/lib64/haswell/gimp/2.0/plug-ins/smooth-palette
-/usr/lib64/haswell/gimp/2.0/plug-ins/softglow
-/usr/lib64/haswell/gimp/2.0/plug-ins/sparkle
-/usr/lib64/haswell/gimp/2.0/plug-ins/sphere-designer
-/usr/lib64/haswell/gimp/2.0/plug-ins/tile
-/usr/lib64/haswell/gimp/2.0/plug-ins/tile-small
-/usr/lib64/haswell/gimp/2.0/plug-ins/unit-editor
-/usr/lib64/haswell/gimp/2.0/plug-ins/unsharp-mask
-/usr/lib64/haswell/gimp/2.0/plug-ins/van-gogh-lic
-/usr/lib64/haswell/gimp/2.0/plug-ins/warp
-/usr/lib64/haswell/gimp/2.0/plug-ins/wavelet-decompose
-/usr/lib64/haswell/gimp/2.0/plug-ins/web-browser
 
 %files bin
 %defattr(-,root,root,-)
@@ -465,6 +348,12 @@ popd
 /usr/bin/gimp-console-2.10
 /usr/bin/gimp-test-clipboard-2.0
 /usr/bin/gimptool-2.0
+/usr/bin/haswell/gimp
+/usr/bin/haswell/gimp-2.10
+/usr/bin/haswell/gimp-console
+/usr/bin/haswell/gimp-console-2.10
+/usr/bin/haswell/gimp-test-clipboard-2.0
+/usr/bin/haswell/gimptool-2.0
 /usr/libexec/gimp-debug-tool-2.0
 
 %files data
@@ -3598,10 +3487,6 @@ popd
 /usr/lib64/haswell/libgimp-2.0.so
 /usr/lib64/haswell/libgimpbase-2.0.so
 /usr/lib64/haswell/libgimpcolor-2.0.so
-/usr/lib64/haswell/libgimpconfig-2.0.so
-/usr/lib64/haswell/libgimpmath-2.0.so
-/usr/lib64/haswell/libgimpmodule-2.0.so
-/usr/lib64/haswell/libgimpthumb-2.0.so
 /usr/lib64/haswell/libgimpui-2.0.so
 /usr/lib64/haswell/libgimpwidgets-2.0.so
 /usr/lib64/libgimp-2.0.so
@@ -4257,6 +4142,15 @@ popd
 
 %files lib
 %defattr(-,root,root,-)
+/usr/lib64/gimp/2.0/modules/haswell/libcolor-selector-cmyk.so
+/usr/lib64/gimp/2.0/modules/haswell/libcolor-selector-water.so
+/usr/lib64/gimp/2.0/modules/haswell/libcolor-selector-wheel.so
+/usr/lib64/gimp/2.0/modules/haswell/libcontroller-linux-input.so
+/usr/lib64/gimp/2.0/modules/haswell/libcontroller-midi.so
+/usr/lib64/gimp/2.0/modules/haswell/libdisplay-filter-clip-warning.so
+/usr/lib64/gimp/2.0/modules/haswell/libdisplay-filter-color-blind.so
+/usr/lib64/gimp/2.0/modules/haswell/libdisplay-filter-gamma.so
+/usr/lib64/gimp/2.0/modules/haswell/libdisplay-filter-high-contrast.so
 /usr/lib64/gimp/2.0/modules/libcolor-selector-cmyk.so
 /usr/lib64/gimp/2.0/modules/libcolor-selector-water.so
 /usr/lib64/gimp/2.0/modules/libcolor-selector-wheel.so
@@ -4266,29 +4160,12 @@ popd
 /usr/lib64/gimp/2.0/modules/libdisplay-filter-color-blind.so
 /usr/lib64/gimp/2.0/modules/libdisplay-filter-gamma.so
 /usr/lib64/gimp/2.0/modules/libdisplay-filter-high-contrast.so
-/usr/lib64/haswell/gimp/2.0/modules/libcolor-selector-cmyk.so
-/usr/lib64/haswell/gimp/2.0/modules/libcolor-selector-water.so
-/usr/lib64/haswell/gimp/2.0/modules/libcolor-selector-wheel.so
-/usr/lib64/haswell/gimp/2.0/modules/libcontroller-linux-input.so
-/usr/lib64/haswell/gimp/2.0/modules/libcontroller-midi.so
-/usr/lib64/haswell/gimp/2.0/modules/libdisplay-filter-clip-warning.so
-/usr/lib64/haswell/gimp/2.0/modules/libdisplay-filter-color-blind.so
-/usr/lib64/haswell/gimp/2.0/modules/libdisplay-filter-gamma.so
-/usr/lib64/haswell/gimp/2.0/modules/libdisplay-filter-high-contrast.so
 /usr/lib64/haswell/libgimp-2.0.so.0
 /usr/lib64/haswell/libgimp-2.0.so.0.1000.4
 /usr/lib64/haswell/libgimpbase-2.0.so.0
 /usr/lib64/haswell/libgimpbase-2.0.so.0.1000.4
 /usr/lib64/haswell/libgimpcolor-2.0.so.0
 /usr/lib64/haswell/libgimpcolor-2.0.so.0.1000.4
-/usr/lib64/haswell/libgimpconfig-2.0.so.0
-/usr/lib64/haswell/libgimpconfig-2.0.so.0.1000.4
-/usr/lib64/haswell/libgimpmath-2.0.so.0
-/usr/lib64/haswell/libgimpmath-2.0.so.0.1000.4
-/usr/lib64/haswell/libgimpmodule-2.0.so.0
-/usr/lib64/haswell/libgimpmodule-2.0.so.0.1000.4
-/usr/lib64/haswell/libgimpthumb-2.0.so.0
-/usr/lib64/haswell/libgimpthumb-2.0.so.0.1000.4
 /usr/lib64/haswell/libgimpui-2.0.so.0
 /usr/lib64/haswell/libgimpui-2.0.so.0.1000.4
 /usr/lib64/haswell/libgimpwidgets-2.0.so.0

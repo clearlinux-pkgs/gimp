@@ -18,7 +18,6 @@ Configure miss: whether we build a relocatable package
 Configure miss: mng_create in -lmng
 Configure miss: aa_printf in -laa
 Configure miss: OPENEXR
-Configure miss: WEBPMUX
 Configure miss: LIBHEIF
 Configure miss: WEBKIT
 Configure miss: libwmf-config
@@ -45,7 +44,6 @@ Configure miss: whether we build a relocatable package
 Configure miss: mng_create in -lmng
 Configure miss: aa_printf in -laa
 Configure miss: OPENEXR
-Configure miss: WEBPMUX
 Configure miss: LIBHEIF
 Configure miss: WEBKIT
 Configure miss: libwmf-config
