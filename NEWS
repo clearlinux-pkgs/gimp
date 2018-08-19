@@ -8,6 +8,66 @@ we do allow some new features here, if they are not too invasive.
 Otherwise, this branch is only for bug-fixes.
 
 
+Overview of Changes from GIMP 2.10.4 to GIMP 2.10.6
+===================================================
+
+Core:
+
+  - Render drawable previews asynchronously.
+  - Merge the file view filter and file format lists in GimpFileDialog.
+    The presence of 2 lists was very confusing.
+  - DLL search priority is now updated before running a plug-in on
+    Windows, depending on the executable bitness. This gets rid of one
+    of the last remnant of DLL hell in GIMP, which was when running
+    32-bit plug-ins from a 64-bit build of GIMP.
+
+Filters:
+
+  - New "Little Planet" (gegl:stereographic-projection) filter.
+  - New "Long Shadow" (gegl:long-shadow) filter.
+
+Tools:
+
+  - Halt the Measure tool after straightening.
+  - Add an "orientation" option to the measure tool, corresponding to
+    the "orientation" property of GimpToolCompass (i.e., it controls the
+    orientation against which the angle is measured, when not in 3-
+    point mode.)  The orientation is "auto" by default, so that the
+    angle is always <= 45 deg.  Note that the "orientation" option
+    affects the tool's "straighten" function, so that the layer is
+    rotated toward the current orientation.
+  - Text layers can now represent vertical texts, with 4 variants:
+    left-to-right and right-to-left lines, and forcing all characters to
+    be upright or following Unicode's vertical orientation property.
+    See also:
+    * https://www.unicode.org/reports/tr50/
+    * http://www.unicode.org/Public/UCD/latest/ucd/VerticalOrientation.txt
+
+User Interface:
+
+  - The Dashboard dockable dialog now has an "async" field to the
+    dashboard's "misc" group, showing the number of async operations
+    currently in the "running" state.
+  - New Preferences option to enable/disable layer-group previews, since
+    these can get quite time-expensive.
+
+Translations:
+
+  - New language: Marathi
+  - 12 translations were updated: Brazilian Portuguese, Dutch, French,
+    German, Greek, Italian, Latvian, Polish, Romanian, Slovenian,
+    Spanish, Swedish.
+
+Build:
+
+  - Add --with-win32-32bit-dll-folder configuration option to override
+    the folder where 32-bit versions of DLL will be installed (default:
+    32/bin/).
+  - Install all plug-ins in their own directories. Unlike on master,
+    this is not mandatory to do so, but it would protect our core
+    plug-ins against any DLL installed directly under plug-ins/ by
+    third-party plug-ins (cf. Windows DLL hell).
+
 Overview of Changes from GIMP 2.10.2 to GIMP 2.10.4
 ===================================================
 

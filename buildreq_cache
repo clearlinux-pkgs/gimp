@@ -1,6 +1,6 @@
-2.10.4
-ghostscript-dev
+2.10.6
 appstream-glib
 desktop-file-utils
-xdg-utils
+ghostscript-dev
 perl
+xdg-utils

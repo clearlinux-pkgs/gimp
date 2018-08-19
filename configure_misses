@@ -12,6 +12,8 @@ Configure miss: sys/thr.h
 Configure miss: thr_self
 Configure miss: whether binary relocation support should be enabled
 Configure miss: if GTK+ is version 2.26.0 or newer (bogus placeholder check)
+Configure miss: if GIMP should open a debug console at start
+Configure miss: the alternative folder containing 32-bit DLLs on Windows
 Configure miss: rint
 Configure miss: whether symbols are prefixed
 Configure miss: whether we build a relocatable package
@@ -38,6 +40,8 @@ Configure miss: sys/thr.h
 Configure miss: thr_self
 Configure miss: whether binary relocation support should be enabled
 Configure miss: if GTK+ is version 2.26.0 or newer (bogus placeholder check)
+Configure miss: if GIMP should open a debug console at start
+Configure miss: the alternative folder containing 32-bit DLLs on Windows
 Configure miss: rint
 Configure miss: whether symbols are prefixed
 Configure miss: whether we build a relocatable package
