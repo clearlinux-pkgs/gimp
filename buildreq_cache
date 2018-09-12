@@ -4,3 +4,4 @@ desktop-file-utils
 ghostscript-dev
 perl
 xdg-utils
+xvfb-run

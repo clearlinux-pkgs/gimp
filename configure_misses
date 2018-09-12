@@ -24,7 +24,6 @@ Configure miss: LIBHEIF
 Configure miss: WEBKIT
 Configure miss: libwmf-config
 Configure miss: OPENJPEG
-Configure miss: xvfb-run
 Configure miss: if building the Windows installer
 Configure miss: if compiling for Win32
 Configure miss: if compiling for Mac OS X
@@ -52,5 +51,4 @@ Configure miss: LIBHEIF
 Configure miss: WEBKIT
 Configure miss: libwmf-config
 Configure miss: OPENJPEG
-Configure miss: xvfb-run
 Configure miss: if building the Windows installer

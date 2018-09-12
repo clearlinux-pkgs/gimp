@@ -4,12 +4,12 @@
 #
 Name     : gimp
 Version  : 2.10.6
-Release  : 46
+Release  : 47
 URL      : https://download.gimp.org/mirror/pub/gimp/v2.10/gimp-2.10.6.tar.bz2
 Source0  : https://download.gimp.org/mirror/pub/gimp/v2.10/gimp-2.10.6.tar.bz2
 Summary  : GIMP Library
 Group    : Development/Tools
-License  : BSD-3-Clause GPL-2.0 GPL-3.0
+License  : BSD-3-Clause GPL-2.0 GPL-3.0 LGPL-3.0
 Requires: gimp-bin
 Requires: gimp-lib
 Requires: gimp-data
@@ -78,6 +78,7 @@ BuildRequires : python-core
 BuildRequires : tiff-dev
 BuildRequires : webkitgtk-dev
 BuildRequires : xdg-utils
+BuildRequires : xvfb-run
 Patch1: fastmath.patch
 
 %description
@@ -172,7 +173,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1534717254
+export SOURCE_DATE_EPOCH=1536759101
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
 export NM=gcc-nm
@@ -180,7 +181,7 @@ export CFLAGS="$CFLAGS -O3 -falign-functions=32 -ffat-lto-objects -flto=4 -fno-m
 export FCFLAGS="$CFLAGS -O3 -falign-functions=32 -ffat-lto-objects -flto=4 -fno-math-errno -fno-semantic-interposition -fno-trapping-math -fstack-protector-strong -mzero-caller-saved-regs=used "
 export FFLAGS="$CFLAGS -O3 -falign-functions=32 -ffat-lto-objects -flto=4 -fno-math-errno -fno-semantic-interposition -fno-trapping-math -fstack-protector-strong -mzero-caller-saved-regs=used "
 export CXXFLAGS="$CXXFLAGS -O3 -falign-functions=32 -ffat-lto-objects -flto=4 -fno-math-errno -fno-semantic-interposition -fno-trapping-math -fstack-protector-strong -mzero-caller-saved-regs=used "
-%configure --disable-static --without-libtiff --disable-python --enable-sse --with-script-fu --enable-bundled-mypaint-brushes  --without-cairo-pdf --disable-gtk-doc-pdf
+%configure --disable-static --without-libtiff --disable-python --enable-sse --with-script-fu --enable-bundled-mypaint-brushes  --without-cairo-pdf --disable-gtk-doc-pdf --sysconfdir=/usr/share/defaults/gimp
 make  %{?_smp_mflags}
 
 unset PKG_CONFIG_PATH
@@ -188,7 +189,7 @@ pushd ../buildavx2/
 export CFLAGS="$CFLAGS -m64 -march=haswell"
 export CXXFLAGS="$CXXFLAGS -m64 -march=haswell"
 export LDFLAGS="$LDFLAGS -m64 -march=haswell"
-%configure --disable-static --without-libtiff --disable-python --enable-sse --with-script-fu --enable-bundled-mypaint-brushes  --without-cairo-pdf --disable-gtk-doc-pdf
+%configure --disable-static --without-libtiff --disable-python --enable-sse --with-script-fu --enable-bundled-mypaint-brushes  --without-cairo-pdf --disable-gtk-doc-pdf --sysconfdir=/usr/share/defaults/gimp
 make  %{?_smp_mflags}
 popd
 %check
@@ -199,11 +200,12 @@ export no_proxy=localhost,127.0.0.1,0.0.0.0
 make VERBOSE=1 V=1 %{?_smp_mflags} check || :
 
 %install
-export SOURCE_DATE_EPOCH=1534717254
+export SOURCE_DATE_EPOCH=1536759101
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/doc/gimp
 cp COPYING %{buildroot}/usr/share/doc/gimp/COPYING
 cp LICENSE %{buildroot}/usr/share/doc/gimp/LICENSE
+cp libgimp/COPYING %{buildroot}/usr/share/doc/gimp/libgimp_COPYING
 cp plug-ins/script-fu/ftx/LICENSE %{buildroot}/usr/share/doc/gimp/plug-ins_script-fu_ftx_LICENSE
 cp plug-ins/script-fu/tinyscheme/COPYING %{buildroot}/usr/share/doc/gimp/plug-ins_script-fu_tinyscheme_COPYING
 pushd ../buildavx2/
@@ -357,6 +359,13 @@ popd
 %files data
 %defattr(-,root,root,-)
 /usr/share/applications/gimp.desktop
+/usr/share/defaults/gimp/gimp/2.0/controllerrc
+/usr/share/defaults/gimp/gimp/2.0/gimprc
+/usr/share/defaults/gimp/gimp/2.0/gtkrc
+/usr/share/defaults/gimp/gimp/2.0/menurc
+/usr/share/defaults/gimp/gimp/2.0/sessionrc
+/usr/share/defaults/gimp/gimp/2.0/templaterc
+/usr/share/defaults/gimp/gimp/2.0/unitrc
 /usr/share/gimp/2.0/brushes/Basic/1-pixel.vbr
 /usr/share/gimp/2.0/brushes/Basic/Block-01.vbr
 /usr/share/gimp/2.0/brushes/Basic/Block-02.vbr
@@ -4219,6 +4228,7 @@ popd
 %defattr(-,root,root,-)
 /usr/share/doc/gimp/COPYING
 /usr/share/doc/gimp/LICENSE
+/usr/share/doc/gimp/libgimp_COPYING
 /usr/share/doc/gimp/plug-ins_script-fu_ftx_LICENSE
 /usr/share/doc/gimp/plug-ins_script-fu_tinyscheme_COPYING
 
