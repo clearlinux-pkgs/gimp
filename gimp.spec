@@ -4,7 +4,7 @@
 #
 Name     : gimp
 Version  : 2.10.8
-Release  : 49
+Release  : 50
 URL      : https://download.gimp.org/mirror/pub/gimp/v2.10/gimp-2.10.8.tar.bz2
 Source0  : https://download.gimp.org/mirror/pub/gimp/v2.10/gimp-2.10.8.tar.bz2
 Summary  : GIMP Library
@@ -74,7 +74,7 @@ BuildRequires : pkgconfig(xfixes)
 BuildRequires : pkgconfig(xmu)
 BuildRequires : pkgconfig(xpm)
 BuildRequires : poppler
-BuildRequires : poppler-data-dev
+BuildRequires : poppler-data-clr-rename-dev
 BuildRequires : poppler-dev
 BuildRequires : python-core
 BuildRequires : tiff-dev
@@ -95,7 +95,6 @@ Group: Binaries
 Requires: gimp-data = %{version}-%{release}
 Requires: gimp-libexec = %{version}-%{release}
 Requires: gimp-license = %{version}-%{release}
-Requires: gimp-man = %{version}-%{release}
 
 %description bin
 bin components for the gimp package.
@@ -186,7 +185,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1541742091
+export SOURCE_DATE_EPOCH=1553291637
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
 export NM=gcc-nm
@@ -215,7 +214,7 @@ cd ../buildavx2;
 make VERBOSE=1 V=1 %{?_smp_mflags} check || : || :
 
 %install
-export SOURCE_DATE_EPOCH=1541742091
+export SOURCE_DATE_EPOCH=1553291637
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/gimp
 cp COPYING %{buildroot}/usr/share/package-licenses/gimp/COPYING

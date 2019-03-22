@@ -19,5 +19,5 @@ alsa-lib-dev
 libmypaint-dev
 mypaint-brushes
 mypaint-brushes-dev
-poppler-data-dev
+poppler-data-clr-rename-dev
 gegl-dev

@@ -1,7 +1,5 @@
 libX11.so.6
 libXcursor.so.1
-libXext.so.6
-libXfixes.so.3
 libXmu.so.6
 libXpm.so.4
 libasound.so.2
