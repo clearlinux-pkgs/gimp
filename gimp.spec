@@ -4,10 +4,10 @@
 #
 Name     : gimp
 Version  : 2.10.8
-Release  : 50
+Release  : 51
 URL      : https://download.gimp.org/mirror/pub/gimp/v2.10/gimp-2.10.8.tar.bz2
 Source0  : https://download.gimp.org/mirror/pub/gimp/v2.10/gimp-2.10.8.tar.bz2
-Summary  : GIMP Library
+Summary  : GNU Image Manipulation Program
 Group    : Development/Tools
 License  : BSD-3-Clause GPL-2.0 GPL-3.0 LGPL-3.0
 Requires: gimp-bin = %{version}-%{release}
@@ -67,7 +67,6 @@ BuildRequires : pkgconfig(libunwind)
 BuildRequires : pkgconfig(libwebp)
 BuildRequires : pkgconfig(pangocairo)
 BuildRequires : pkgconfig(pangoft2)
-BuildRequires : pkgconfig(pycairo)
 BuildRequires : pkgconfig(shared-mime-info)
 BuildRequires : pkgconfig(xcursor)
 BuildRequires : pkgconfig(xfixes)
@@ -84,10 +83,12 @@ BuildRequires : xvfb-run
 Patch1: fastmath.patch
 
 %description
-------------------------------
-GNU Image Manipulation Program
-2.10 Stable Branch
-------------------------------
+This directory contains a version of TinyScheme which has been modified
+to support UTF-8 coded strings. The strings stored in a data cell are
+expected to be in UTF-8 format. This allows the continued use of gchar
+pointers to pass around the strings. Processing the strings will require
+conversion to unicode at times depending on the specific operation that
+needs to be done on the UTF-8 coded strings.
 
 %package bin
 Summary: bin components for the gimp package.
@@ -115,6 +116,7 @@ Requires: gimp-lib = %{version}-%{release}
 Requires: gimp-bin = %{version}-%{release}
 Requires: gimp-data = %{version}-%{release}
 Provides: gimp-devel = %{version}-%{release}
+Requires: gimp = %{version}-%{release}
 
 %description dev
 dev components for the gimp package.
@@ -185,7 +187,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1553291637
+export SOURCE_DATE_EPOCH=1554401112
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
 export NM=gcc-nm
@@ -214,7 +216,7 @@ cd ../buildavx2;
 make VERBOSE=1 V=1 %{?_smp_mflags} check || : || :
 
 %install
-export SOURCE_DATE_EPOCH=1553291637
+export SOURCE_DATE_EPOCH=1554401112
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/gimp
 cp COPYING %{buildroot}/usr/share/package-licenses/gimp/COPYING

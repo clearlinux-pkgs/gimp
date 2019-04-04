@@ -17,3 +17,4 @@ OpenEXR
 gegl-gegl_major_minor_version
 libheif
 libwmf
+pycairo
