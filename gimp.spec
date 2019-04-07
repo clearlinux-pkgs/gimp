@@ -4,7 +4,7 @@
 #
 Name     : gimp
 Version  : 2.10.10
-Release  : 52
+Release  : 53
 URL      : https://download.gimp.org/mirror/pub/gimp/v2.10/gimp-2.10.10.tar.bz2
 Source0  : https://download.gimp.org/mirror/pub/gimp/v2.10/gimp-2.10.10.tar.bz2
 Summary  : GNU Image Manipulation Program
