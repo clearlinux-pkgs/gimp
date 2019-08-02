@@ -1,7 +1,8 @@
-2.10.10
+2.10.12
 appstream-glib
 desktop-file-utils
 ghostscript-dev
+openexr-dev
 perl
 xdg-utils
 xvfb-run

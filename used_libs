@@ -1,3 +1,5 @@
+libIex-2_3.so.24
+libIlmImf-2_3.so.24
 libX11.so.6
 libXcursor.so.1
 libXmu.so.6
@@ -11,6 +13,7 @@ libcairo.so.2
 libdl.so.2
 libfontconfig.so.1
 libfreetype.so.6
+libgcc_s.so.1
 libgdk-x11-2.0.so.0
 libgdk_pixbuf-2.0.so.0
 libgegl-0.4.so.0
@@ -37,6 +40,7 @@ libpng16.so.16
 libpoppler-glib.so.8
 libpthread.so.0
 librsvg-2.so.2
+libstdc++.so.6
 libtiff.so.5
 libunwind.so.8
 libwebp.so.7
