@@ -1,0 +1,55 @@
+From 38e87c2d16d0e519b35be9b2cdc9e5e28dbfab54 Mon Sep 17 00:00:00 2001
+From: Federico Mena Quintero <federico@gnome.org>
+Date: Mon, 22 Jul 2019 13:55:12 -0500
+Subject: [PATCH] Issue #2561: Fix computation of SVG image sizes
+
+The librsvg API was being called in an incorrect order.  One cannot
+call rsvg_handle_get_dimensions() until after rsvg_handle_close() is
+done.
+
+(cherry picked from commit b2027c40b7ba60583de9b09f127649e067fe3d98)
+---
+ plug-ins/common/file-svg.c | 23 ++++++++++++++---------
+ 1 file changed, 14 insertions(+), 9 deletions(-)
+
+diff --git a/plug-ins/common/file-svg.c b/plug-ins/common/file-svg.c
+index 570b3632b1..9f3de881d1 100644
+--- a/plug-ins/common/file-svg.c
++++ b/plug-ins/common/file-svg.c
+@@ -521,19 +521,24 @@ load_rsvg_size (const gchar  *filename,
+           break;
+         case G_IO_STATUS_EOF:
+           success = rsvg_handle_close (handle, error);
+-          break;
+-        case G_IO_STATUS_NORMAL:
+-          success = rsvg_handle_write (handle,
+-                                       (const guchar *) buf, len, error);
+-          rsvg_handle_get_dimensions (handle, &dim);
+ 
+-          if (dim.width > 0 && dim.height > 0)
++          if (success)
+             {
+-              vals->width  = dim.width;
+-              vals->height = dim.height;
++              rsvg_handle_get_dimensions (handle, &dim);
++
++              if (dim.width > 0 && dim.height > 0)
++                {
++                  vals->width  = dim.width;
++                  vals->height = dim.height;
+ 
+-              done = TRUE;
++                  done = TRUE;
++                }
+             }
++
++          break;
++        case G_IO_STATUS_NORMAL:
++          success = rsvg_handle_write (handle,
++                                       (const guchar *) buf, len, error);
+           break;
+         case G_IO_STATUS_AGAIN:
+           break;
+-- 
+2.21.0
+
