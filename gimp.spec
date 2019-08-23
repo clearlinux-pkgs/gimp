@@ -4,7 +4,7 @@
 #
 Name     : gimp
 Version  : 2.10.12
-Release  : 55
+Release  : 56
 URL      : https://download.gimp.org/mirror/pub/gimp/v2.10/gimp-2.10.12.tar.bz2
 Source0  : https://download.gimp.org/mirror/pub/gimp/v2.10/gimp-2.10.12.tar.bz2
 Summary  : GIMP Library
@@ -20,7 +20,6 @@ Requires: gimp-man = %{version}-%{release}
 BuildRequires : alsa-lib-dev
 BuildRequires : appstream-glib
 BuildRequires : bzip2-dev
-BuildRequires : compat-gegl-dev
 BuildRequires : desktop-file-utils
 BuildRequires : docbook-xml
 BuildRequires : gdk-pixbuf
@@ -188,7 +187,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1564786280
+export SOURCE_DATE_EPOCH=1566519213
 export GCC_IGNORE_WERROR=1
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
@@ -218,7 +217,7 @@ cd ../buildavx2;
 make VERBOSE=1 V=1 %{?_smp_mflags} check || : || :
 
 %install
-export SOURCE_DATE_EPOCH=1564786280
+export SOURCE_DATE_EPOCH=1566519213
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/gimp
 cp COPYING %{buildroot}/usr/share/package-licenses/gimp/COPYING
