@@ -7,7 +7,7 @@ libXpm.so.4
 libasound.so.2
 libatk-1.0.so.0
 libbabl-0.1.so.0
-libbz2.so.0
+libbz2.so.1.0
 libc.so.6
 libcairo.so.2
 libdl.so.2
