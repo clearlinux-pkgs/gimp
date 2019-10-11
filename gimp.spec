@@ -4,7 +4,7 @@
 #
 Name     : gimp
 Version  : 2.10.12
-Release  : 57
+Release  : 58
 URL      : https://download.gimp.org/mirror/pub/gimp/v2.10/gimp-2.10.12.tar.bz2
 Source0  : https://download.gimp.org/mirror/pub/gimp/v2.10/gimp-2.10.12.tar.bz2
 Summary  : GIMP Library
@@ -75,7 +75,6 @@ BuildRequires : pkgconfig(xpm)
 BuildRequires : poppler
 BuildRequires : poppler-data-clr-rename-dev
 BuildRequires : poppler-dev
-BuildRequires : python-core
 BuildRequires : tiff-dev
 BuildRequires : webkitgtk-dev
 BuildRequires : xdg-utils
@@ -187,7 +186,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1568071827
+export SOURCE_DATE_EPOCH=1570817516
 export GCC_IGNORE_WERROR=1
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
@@ -217,15 +216,15 @@ cd ../buildavx2;
 make VERBOSE=1 V=1 %{?_smp_mflags} check || : || :
 
 %install
-export SOURCE_DATE_EPOCH=1568071827
+export SOURCE_DATE_EPOCH=1570817516
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/gimp
-cp COPYING %{buildroot}/usr/share/package-licenses/gimp/COPYING
-cp LICENSE %{buildroot}/usr/share/package-licenses/gimp/LICENSE
-cp libgimp/COPYING %{buildroot}/usr/share/package-licenses/gimp/libgimp_COPYING
-cp plug-ins/file-dds/COPYING %{buildroot}/usr/share/package-licenses/gimp/plug-ins_file-dds_COPYING
-cp plug-ins/script-fu/ftx/LICENSE %{buildroot}/usr/share/package-licenses/gimp/plug-ins_script-fu_ftx_LICENSE
-cp plug-ins/script-fu/tinyscheme/COPYING %{buildroot}/usr/share/package-licenses/gimp/plug-ins_script-fu_tinyscheme_COPYING
+cp %{_builddir}/gimp-2.10.12/COPYING %{buildroot}/usr/share/package-licenses/gimp/0dd432edfab90223f22e49c02e2124f87d6f0a56
+cp %{_builddir}/gimp-2.10.12/LICENSE %{buildroot}/usr/share/package-licenses/gimp/d0836463afc5e3d4bde884de8bff3be3998db6d1
+cp %{_builddir}/gimp-2.10.12/libgimp/COPYING %{buildroot}/usr/share/package-licenses/gimp/a393f03af92371f6aa7c379c82077fe419283aa1
+cp %{_builddir}/gimp-2.10.12/plug-ins/file-dds/COPYING %{buildroot}/usr/share/package-licenses/gimp/093f1a5009a4ff69e9075fd00aa29968778315cf
+cp %{_builddir}/gimp-2.10.12/plug-ins/script-fu/ftx/LICENSE %{buildroot}/usr/share/package-licenses/gimp/8d629cc7c615f0311a8a93c37d754d1ccb8c47cb
+cp %{_builddir}/gimp-2.10.12/plug-ins/script-fu/tinyscheme/COPYING %{buildroot}/usr/share/package-licenses/gimp/caf3c22163d024d0943740fd0c1b1c80513fea7b
 pushd ../buildavx2/
 %make_install_avx2
 popd
@@ -4273,12 +4272,12 @@ popd
 
 %files license
 %defattr(0644,root,root,0755)
-/usr/share/package-licenses/gimp/COPYING
-/usr/share/package-licenses/gimp/LICENSE
-/usr/share/package-licenses/gimp/libgimp_COPYING
-/usr/share/package-licenses/gimp/plug-ins_file-dds_COPYING
-/usr/share/package-licenses/gimp/plug-ins_script-fu_ftx_LICENSE
-/usr/share/package-licenses/gimp/plug-ins_script-fu_tinyscheme_COPYING
+/usr/share/package-licenses/gimp/093f1a5009a4ff69e9075fd00aa29968778315cf
+/usr/share/package-licenses/gimp/0dd432edfab90223f22e49c02e2124f87d6f0a56
+/usr/share/package-licenses/gimp/8d629cc7c615f0311a8a93c37d754d1ccb8c47cb
+/usr/share/package-licenses/gimp/a393f03af92371f6aa7c379c82077fe419283aa1
+/usr/share/package-licenses/gimp/caf3c22163d024d0943740fd0c1b1c80513fea7b
+/usr/share/package-licenses/gimp/d0836463afc5e3d4bde884de8bff3be3998db6d1
 
 %files man
 %defattr(0644,root,root,0755)

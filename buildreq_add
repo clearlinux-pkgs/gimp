@@ -6,7 +6,6 @@ webkitgtk-dev
 lcms2-dev
 poppler-dev
 tiff-dev
-python-core
 webkitgtk-dev
 glib-networking
 libwebp-dev
