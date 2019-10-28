@@ -19,6 +19,7 @@ Configure miss: whether we build a relocatable package
 Configure miss: mng_create in -lmng
 Configure miss: aa_printf in -laa
 Configure miss: LIBHEIF
+Configure miss: LIBHEIF
 Configure miss: LIBBACKTRACE
 Configure miss: WEBKIT
 Configure miss: libwmf-config
@@ -44,6 +45,7 @@ Configure miss: whether symbols are prefixed
 Configure miss: whether we build a relocatable package
 Configure miss: mng_create in -lmng
 Configure miss: aa_printf in -laa
+Configure miss: LIBHEIF
 Configure miss: LIBHEIF
 Configure miss: LIBBACKTRACE
 Configure miss: WEBKIT
