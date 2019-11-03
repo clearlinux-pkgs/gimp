@@ -4,7 +4,7 @@
 #
 Name     : gimp
 Version  : 2.10.14
-Release  : 60
+Release  : 61
 URL      : https://download.gimp.org/mirror/pub/gimp/v2.10/gimp-2.10.14.tar.bz2
 Source0  : https://download.gimp.org/mirror/pub/gimp/v2.10/gimp-2.10.14.tar.bz2
 Summary  : GNU Image Manipulation Program
