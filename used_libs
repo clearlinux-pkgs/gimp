@@ -1,9 +1,14 @@
+libHalf.so.24
 libIex-2_3.so.24
+libIexMath-2_3.so.24
 libIlmImf-2_3.so.24
+libIlmThread-2_3.so.24
+libImath-2_3.so.24
 libX11.so.6
 libXcursor.so.1
 libXmu.so.6
 libXpm.so.4
+libXt.so.6
 libasound.so.2
 libatk-1.0.so.0
 libbabl-0.1.so.0

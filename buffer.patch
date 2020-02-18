@@ -1,0 +1,11 @@
+--- gimp-2.10.14/libgimpconfig/gimpscanner.c~	2019-10-26 18:49:18.000000000 +0000
++++ gimp-2.10.14/libgimpconfig/gimpscanner.c	2020-02-18 21:48:19.860467906 +0000
+@@ -191,7 +191,7 @@
+   GFile       *file;
+   const gchar *path;
+   GString     *string;
+-  gchar        buffer[4096];
++  gchar        buffer[40960];
+   gsize        bytes_read;
+ 
+   g_return_val_if_fail (G_IS_INPUT_STREAM (input), NULL);
