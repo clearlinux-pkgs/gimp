@@ -4,7 +4,7 @@
 #
 Name     : gimp
 Version  : 2.10.14
-Release  : 61
+Release  : 62
 URL      : https://download.gimp.org/mirror/pub/gimp/v2.10/gimp-2.10.14.tar.bz2
 Source0  : https://download.gimp.org/mirror/pub/gimp/v2.10/gimp-2.10.14.tar.bz2
 Summary  : GNU Image Manipulation Program
@@ -30,6 +30,7 @@ BuildRequires : glib-networking
 BuildRequires : gtk+
 BuildRequires : gtk-doc
 BuildRequires : gtk-doc-dev
+BuildRequires : gtk3-bin
 BuildRequires : gtk3-dev
 BuildRequires : intltool
 BuildRequires : lcms2-dev
@@ -178,6 +179,7 @@ man components for the gimp package.
 
 %prep
 %setup -q -n gimp-2.10.14
+cd %{_builddir}/gimp-2.10.14
 %patch1 -p1
 pushd ..
 cp -a gimp-2.10.14 buildavx2
@@ -188,7 +190,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1572276920
+export SOURCE_DATE_EPOCH=1582053219
 # -Werror is for werrorists
 export GCC_IGNORE_WERROR=1
 export AR=gcc-ar
@@ -219,7 +221,7 @@ cd ../buildavx2;
 make VERBOSE=1 V=1 %{?_smp_mflags} check || : || :
 
 %install
-export SOURCE_DATE_EPOCH=1572276920
+export SOURCE_DATE_EPOCH=1582053219
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/gimp
 cp %{_builddir}/gimp-2.10.14/COPYING %{buildroot}/usr/share/package-licenses/gimp/0dd432edfab90223f22e49c02e2124f87d6f0a56
@@ -238,6 +240,9 @@ popd
 %find_lang gimp20-script-fu
 %find_lang gimp20-std-plug-ins
 %find_lang gimp20-tips
+## install_append content
+for i in %{buildroot}/usr/share/gimp/2.0/icons/*; do  /usr/bin/gtk-update-icon-cache $i ; done
+## install_append end
 
 %files
 %defattr(-,root,root,-)
@@ -896,6 +901,7 @@ popd
 /usr/share/gimp/2.0/icons/Color/64x64/apps/gimp-question.png
 /usr/share/gimp/2.0/icons/Color/64x64/apps/gimp-texture.png
 /usr/share/gimp/2.0/icons/Color/64x64/apps/gimp-warning.png
+/usr/share/gimp/2.0/icons/Color/icon-theme.cache
 /usr/share/gimp/2.0/icons/Color/index.theme
 /usr/share/gimp/2.0/icons/Color/scalable/apps/dialog-information.svg
 /usr/share/gimp/2.0/icons/Color/scalable/apps/document-new.svg
@@ -1678,6 +1684,7 @@ popd
 /usr/share/gimp/2.0/icons/Legacy/64x64/apps/gimp-wilber.png
 /usr/share/gimp/2.0/icons/Legacy/96x96/apps/gimp-wilber-outline.png
 /usr/share/gimp/2.0/icons/Legacy/96x96/apps/gimp-wilber.png
+/usr/share/gimp/2.0/icons/Legacy/icon-theme.cache
 /usr/share/gimp/2.0/icons/Legacy/index.theme
 /usr/share/gimp/2.0/icons/Symbolic-Inverted/24x24/apps/dialog-information.svg
 /usr/share/gimp/2.0/icons/Symbolic-Inverted/24x24/apps/document-print.svg
@@ -1850,6 +1857,7 @@ popd
 /usr/share/gimp/2.0/icons/Symbolic-Inverted/64x64/apps/gimp-question.png
 /usr/share/gimp/2.0/icons/Symbolic-Inverted/64x64/apps/gimp-texture.png
 /usr/share/gimp/2.0/icons/Symbolic-Inverted/64x64/apps/gimp-warning.png
+/usr/share/gimp/2.0/icons/Symbolic-Inverted/icon-theme.cache
 /usr/share/gimp/2.0/icons/Symbolic-Inverted/index.theme
 /usr/share/gimp/2.0/icons/Symbolic-Inverted/scalable/apps/dialog-information.svg
 /usr/share/gimp/2.0/icons/Symbolic-Inverted/scalable/apps/document-new.svg
@@ -2357,6 +2365,7 @@ popd
 /usr/share/gimp/2.0/icons/Symbolic/64x64/apps/gimp-question.png
 /usr/share/gimp/2.0/icons/Symbolic/64x64/apps/gimp-texture.png
 /usr/share/gimp/2.0/icons/Symbolic/64x64/apps/gimp-warning.png
+/usr/share/gimp/2.0/icons/Symbolic/icon-theme.cache
 /usr/share/gimp/2.0/icons/Symbolic/index.theme
 /usr/share/gimp/2.0/icons/Symbolic/scalable/apps/dialog-information.svg
 /usr/share/gimp/2.0/icons/Symbolic/scalable/apps/document-new.svg

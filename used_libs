@@ -28,6 +28,7 @@ libgtk-x11-2.0.so.0
 libgudev-1.0.so.0
 libharfbuzz.so.0
 libjpeg.so.62
+libjson-c.so.4
 libjson-glib-1.0.so.0
 liblcms2.so.2
 liblzma.so.5

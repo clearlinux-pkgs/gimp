@@ -19,3 +19,4 @@ mypaint-brushes
 mypaint-brushes-dev
 poppler-data-clr-rename-dev
 gegl-dev
+gtk3-bin
