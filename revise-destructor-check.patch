@@ -1,0 +1,36 @@
+From 30b776b09c68d10dfb7288856fbddd045dcec4c7 Mon Sep 17 00:00:00 2001
+From: Ming Chen <ming.a.chen@intel.com>
+Date: Tue, 25 Feb 2020 10:42:53 +0800
+Subject: [PATCH] revise the check for destructor attribute
+
+The check for destructor attribute always fails with the compiler flag
+Wstrict-prototypes, as a result libgimpwidgets will never call babl_exit
+which is in its destruction and in particular the babl fish cache will
+never be constructed.
+
+With this fix the warning and conftest.err in the destrucor test will
+not be generated thus babl cache gets enabled. It should improves babl
+performance in GIMP, and more notably it cuts GIMP's launch time by
+half on my i9 9900K machine.
+
+Signed-off-by: Ming Chen <ming.a.chen@intel.com>
+---
+ configure | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/configure b/configure
+index 5c4229d..d865498 100755
+--- a/configure
++++ b/configure
+@@ -26580,7 +26580,7 @@ else
+                     int foo( void ) __attribute__((destructor));
+ 
+ int
+-main ()
++main (void)
+ {
+ 
+   ;
+-- 
+2.25.0
+
