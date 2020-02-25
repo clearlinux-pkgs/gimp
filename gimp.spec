@@ -4,7 +4,7 @@
 #
 Name     : gimp
 Version  : 2.10.18
-Release  : 66
+Release  : 67
 URL      : https://download.gimp.org/mirror/pub/gimp/v2.10/gimp-2.10.18.tar.bz2
 Source0  : https://download.gimp.org/mirror/pub/gimp/v2.10/gimp-2.10.18.tar.bz2
 Summary  : GNU Image Manipulation Program
@@ -194,7 +194,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1582668318
+export SOURCE_DATE_EPOCH=1582670596
 unset LD_AS_NEEDED
 # -Werror is for werrorists
 export GCC_IGNORE_WERROR=1
@@ -226,7 +226,7 @@ cd ../buildavx2;
 make VERBOSE=1 V=1 %{?_smp_mflags} check || : || :
 
 %install
-export SOURCE_DATE_EPOCH=1582668318
+export SOURCE_DATE_EPOCH=1582670596
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/gimp
 cp %{_builddir}/gimp-2.10.18/COPYING %{buildroot}/usr/share/package-licenses/gimp/0dd432edfab90223f22e49c02e2124f87d6f0a56
@@ -247,6 +247,9 @@ popd
 %find_lang gimp20-tips
 ## install_append content
 for i in %{buildroot}/usr/share/gimp/2.0/icons/*; do  /usr/bin/gtk-update-icon-cache $i ; done
+pushd %{buildroot}/usr/lib64/gimp/2.0/modules/haswell/
+for i in *.so ; do mv $i ../$i.so.avx2 ; done
+popd
 ## install_append end
 
 %files
@@ -5336,22 +5339,18 @@ for i in %{buildroot}/usr/share/gimp/2.0/icons/*; do  /usr/bin/gtk-update-icon-c
 
 %files lib
 %defattr(-,root,root,-)
-/usr/lib64/gimp/2.0/modules/haswell/libcolor-selector-cmyk.so
-/usr/lib64/gimp/2.0/modules/haswell/libcolor-selector-water.so
-/usr/lib64/gimp/2.0/modules/haswell/libcolor-selector-wheel.so
-/usr/lib64/gimp/2.0/modules/haswell/libcontroller-linux-input.so
-/usr/lib64/gimp/2.0/modules/haswell/libcontroller-midi.so
-/usr/lib64/gimp/2.0/modules/haswell/libdisplay-filter-clip-warning.so
-/usr/lib64/gimp/2.0/modules/haswell/libdisplay-filter-color-blind.so
-/usr/lib64/gimp/2.0/modules/haswell/libdisplay-filter-gamma.so
-/usr/lib64/gimp/2.0/modules/haswell/libdisplay-filter-high-contrast.so
 /usr/lib64/gimp/2.0/modules/libcolor-selector-cmyk.so
+/usr/lib64/gimp/2.0/modules/libcolor-selector-cmyk.so.so.avx2
 /usr/lib64/gimp/2.0/modules/libcolor-selector-water.so
+/usr/lib64/gimp/2.0/modules/libcolor-selector-water.so.so.avx2
 /usr/lib64/gimp/2.0/modules/libcolor-selector-wheel.so
+/usr/lib64/gimp/2.0/modules/libcolor-selector-wheel.so.so.avx2
 /usr/lib64/gimp/2.0/modules/libcontroller-linux-input.so
 /usr/lib64/gimp/2.0/modules/libcontroller-midi.so
 /usr/lib64/gimp/2.0/modules/libdisplay-filter-clip-warning.so
+/usr/lib64/gimp/2.0/modules/libdisplay-filter-clip-warning.so.so.avx2
 /usr/lib64/gimp/2.0/modules/libdisplay-filter-color-blind.so
+/usr/lib64/gimp/2.0/modules/libdisplay-filter-color-blind.so.so.avx2
 /usr/lib64/gimp/2.0/modules/libdisplay-filter-gamma.so
 /usr/lib64/gimp/2.0/modules/libdisplay-filter-high-contrast.so
 /usr/lib64/haswell/libgimp-2.0.so.0

@@ -1,1 +1,4 @@
 for i in %{buildroot}/usr/share/gimp/2.0/icons/*; do  /usr/bin/gtk-update-icon-cache $i ; done
+pushd %{buildroot}/usr/lib64/gimp/2.0/modules/haswell/
+for i in *.so ; do mv $i ../$i.so.avx2 ; done
+popd
