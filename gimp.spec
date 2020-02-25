@@ -4,7 +4,7 @@
 #
 Name     : gimp
 Version  : 2.10.16
-Release  : 64
+Release  : 65
 URL      : https://download.gimp.org/mirror/pub/gimp/v2.10/gimp-2.10.16.tar.bz2
 Source0  : https://download.gimp.org/mirror/pub/gimp/v2.10/gimp-2.10.16.tar.bz2
 Summary  : GNU Image Manipulation Program
@@ -83,6 +83,7 @@ BuildRequires : xdg-utils
 BuildRequires : xvfb-run
 Patch1: fastmath.patch
 Patch2: buffer.patch
+Patch3: revise-destructor-check.patch
 
 %description
 This directory contains a version of TinyScheme which has been modified
@@ -183,6 +184,7 @@ man components for the gimp package.
 cd %{_builddir}/gimp-2.10.16
 %patch1 -p1
 %patch2 -p1
+%patch3 -p1
 pushd ..
 cp -a gimp-2.10.16 buildavx2
 popd
@@ -192,7 +194,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1582074098
+export SOURCE_DATE_EPOCH=1582664919
 unset LD_AS_NEEDED
 # -Werror is for werrorists
 export GCC_IGNORE_WERROR=1
@@ -224,7 +226,7 @@ cd ../buildavx2;
 make VERBOSE=1 V=1 %{?_smp_mflags} check || : || :
 
 %install
-export SOURCE_DATE_EPOCH=1582074098
+export SOURCE_DATE_EPOCH=1582664919
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/gimp
 cp %{_builddir}/gimp-2.10.16/COPYING %{buildroot}/usr/share/package-licenses/gimp/0dd432edfab90223f22e49c02e2124f87d6f0a56

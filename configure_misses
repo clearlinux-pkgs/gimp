@@ -14,7 +14,6 @@ Configure miss: the alternative folder containing 32-bit DLLs on Windows
 Configure miss: matting engine Levin
 Configure miss: isfinite
 Configure miss: rint
-Configure miss: __attribute__((destructor))
 Configure miss: whether symbols are prefixed
 Configure miss: whether we build a relocatable package
 Configure miss: mng_create in -lmng
@@ -44,7 +43,6 @@ Configure miss: the alternative folder containing 32-bit DLLs on Windows
 Configure miss: matting engine Levin
 Configure miss: isfinite
 Configure miss: rint
-Configure miss: __attribute__((destructor))
 Configure miss: whether symbols are prefixed
 Configure miss: whether we build a relocatable package
 Configure miss: mng_create in -lmng
