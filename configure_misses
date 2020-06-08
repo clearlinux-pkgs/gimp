@@ -18,14 +18,15 @@ Configure miss: whether symbols are prefixed
 Configure miss: whether we build a relocatable package
 Configure miss: mng_create in -lmng
 Configure miss: aa_printf in -laa
-Configure miss: LIBHEIF
-Configure miss: LIBHEIF
-Configure miss: LIBHEIF
-Configure miss: LIBHEIF
+Configure miss: OpenEXR >= 1.6.1
+Configure miss: libheif > 1.5.1
+Configure miss: libheif = 1.4.0
+Configure miss: libheif = 1.3.2
+Configure miss: libheif >= 1.5.0
 Configure miss: LIBBACKTRACE
-Configure miss: WEBKIT
+Configure miss: webkit-1.0 >= 1.6.1
 Configure miss: libwmf-config
-Configure miss: OPENJPEG
+Configure miss: libopenjp2 >= 2.1.0
 Configure miss: if building the Windows installer
 Configure miss: if compiling for Win32
 Configure miss: if compiling for Mac OS X
@@ -47,12 +48,13 @@ Configure miss: whether symbols are prefixed
 Configure miss: whether we build a relocatable package
 Configure miss: mng_create in -lmng
 Configure miss: aa_printf in -laa
-Configure miss: LIBHEIF
-Configure miss: LIBHEIF
-Configure miss: LIBHEIF
-Configure miss: LIBHEIF
+Configure miss: OpenEXR >= 1.6.1
+Configure miss: libheif > 1.5.1
+Configure miss: libheif = 1.4.0
+Configure miss: libheif = 1.3.2
+Configure miss: libheif >= 1.5.0
 Configure miss: LIBBACKTRACE
-Configure miss: WEBKIT
+Configure miss: webkit-1.0 >= 1.6.1
 Configure miss: libwmf-config
-Configure miss: OPENJPEG
+Configure miss: libopenjp2 >= 2.1.0
 Configure miss: if building the Windows installer
