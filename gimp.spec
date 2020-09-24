@@ -4,7 +4,7 @@
 #
 Name     : gimp
 Version  : 2.10.20
-Release  : 69
+Release  : 70
 URL      : https://download.gimp.org/mirror/pub/gimp/v2.10/gimp-2.10.20.tar.bz2
 Source0  : https://download.gimp.org/mirror/pub/gimp/v2.10/gimp-2.10.20.tar.bz2
 Summary  : GIMP Library
