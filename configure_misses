@@ -1,64 +1,64 @@
-Configure miss: if compiling for Win32
-Configure miss: if compiling for Mac OS X
-Configure miss: whether to turn on debugging
-Configure miss: whether to turn on profiling
-Configure miss: whether gcc understands --omg-optimized
-Configure miss: whether gcc understands --disable-instructions
-Configure miss: sys/thr.h usability
-Configure miss: sys/thr.h presence
-Configure miss: sys/thr.h
-Configure miss: thr_self
-Configure miss: if GTK+ is version 2.26.0 or newer (bogus placeholder check)
-Configure miss: if GIMP should open a debug console at start
-Configure miss: the alternative folder containing 32-bit DLLs on Windows
-Configure miss: matting engine Levin
-Configure miss: isfinite
-Configure miss: rint
-Configure miss: whether symbols are prefixed
-Configure miss: whether we build a relocatable package
-Configure miss: mng_create in -lmng
-Configure miss: aa_printf in -laa
-Configure miss: OpenEXR >= 1.6.1
-Configure miss: libheif > 1.5.1
-Configure miss: libheif = 1.4.0
-Configure miss: libheif = 1.3.2
-Configure miss: libheif >= 1.5.0
 Configure miss: LIBBACKTRACE
-Configure miss: webkit-1.0 >= 1.6.1
+Configure miss: LIBBACKTRACE
+Configure miss: OpenEXR >= 1.6.1
+Configure miss: OpenEXR >= 1.6.1
+Configure miss: aa_printf in -laa
+Configure miss: aa_printf in -laa
+Configure miss: if GIMP should open a debug console at start
+Configure miss: if GIMP should open a debug console at start
+Configure miss: if GTK+ is version 2.26.0 or newer (bogus placeholder check)
+Configure miss: if GTK+ is version 2.26.0 or newer (bogus placeholder check)
+Configure miss: if building the Windows installer
+Configure miss: if building the Windows installer
+Configure miss: if compiling for Mac OS X
+Configure miss: if compiling for Mac OS X
+Configure miss: if compiling for Win32
+Configure miss: if compiling for Win32
+Configure miss: isfinite
+Configure miss: isfinite
+Configure miss: libheif = 1.3.2
+Configure miss: libheif = 1.3.2
+Configure miss: libheif = 1.4.0
+Configure miss: libheif = 1.4.0
+Configure miss: libheif > 1.5.1
+Configure miss: libheif > 1.5.1
+Configure miss: libheif >= 1.5.0
+Configure miss: libheif >= 1.5.0
+Configure miss: libopenjp2 >= 2.1.0
+Configure miss: libopenjp2 >= 2.1.0
+Configure miss: libwmf >= 0.2.8
 Configure miss: libwmf >= 0.2.8
 Configure miss: libwmf-config
-Configure miss: libopenjp2 >= 2.1.0
+Configure miss: libwmf-config
+Configure miss: matting engine Levin
+Configure miss: matting engine Levin
+Configure miss: mng_create in -lmng
+Configure miss: mng_create in -lmng
 Configure miss: pygtk-codegen-2.0
-Configure miss: if building the Windows installer
-Configure miss: if compiling for Win32
-Configure miss: if compiling for Mac OS X
+Configure miss: pygtk-codegen-2.0
+Configure miss: rint
+Configure miss: rint
+Configure miss: sys/thr.h
+Configure miss: sys/thr.h
+Configure miss: sys/thr.h presence
+Configure miss: sys/thr.h presence
+Configure miss: sys/thr.h usability
+Configure miss: sys/thr.h usability
+Configure miss: the alternative folder containing 32-bit DLLs on Windows
+Configure miss: the alternative folder containing 32-bit DLLs on Windows
+Configure miss: thr_self
+Configure miss: thr_self
+Configure miss: webkit-1.0 >= 1.6.1
+Configure miss: webkit-1.0 >= 1.6.1
+Configure miss: whether gcc understands --disable-instructions
+Configure miss: whether gcc understands --disable-instructions
+Configure miss: whether gcc understands --omg-optimized
+Configure miss: whether gcc understands --omg-optimized
+Configure miss: whether symbols are prefixed
+Configure miss: whether symbols are prefixed
+Configure miss: whether to turn on debugging
 Configure miss: whether to turn on debugging
 Configure miss: whether to turn on profiling
-Configure miss: whether gcc understands --omg-optimized
-Configure miss: whether gcc understands --disable-instructions
-Configure miss: sys/thr.h usability
-Configure miss: sys/thr.h presence
-Configure miss: sys/thr.h
-Configure miss: thr_self
-Configure miss: if GTK+ is version 2.26.0 or newer (bogus placeholder check)
-Configure miss: if GIMP should open a debug console at start
-Configure miss: the alternative folder containing 32-bit DLLs on Windows
-Configure miss: matting engine Levin
-Configure miss: isfinite
-Configure miss: rint
-Configure miss: whether symbols are prefixed
+Configure miss: whether to turn on profiling
 Configure miss: whether we build a relocatable package
-Configure miss: mng_create in -lmng
-Configure miss: aa_printf in -laa
-Configure miss: OpenEXR >= 1.6.1
-Configure miss: libheif > 1.5.1
-Configure miss: libheif = 1.4.0
-Configure miss: libheif = 1.3.2
-Configure miss: libheif >= 1.5.0
-Configure miss: LIBBACKTRACE
-Configure miss: webkit-1.0 >= 1.6.1
-Configure miss: libwmf >= 0.2.8
-Configure miss: libwmf-config
-Configure miss: libopenjp2 >= 2.1.0
-Configure miss: pygtk-codegen-2.0
-Configure miss: if building the Windows installer
+Configure miss: whether we build a relocatable package
