@@ -4,7 +4,7 @@
 #
 Name     : gimp
 Version  : 2.10.24
-Release  : 77
+Release  : 78
 URL      : https://download.gimp.org/mirror/pub/gimp/v2.10/gimp-2.10.24.tar.bz2
 Source0  : https://download.gimp.org/mirror/pub/gimp/v2.10/gimp-2.10.24.tar.bz2
 Summary  : GIMP Library
@@ -189,16 +189,16 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1617221218
+export SOURCE_DATE_EPOCH=1629133925
 unset LD_AS_NEEDED
 export GCC_IGNORE_WERROR=1
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
 export NM=gcc-nm
-export CFLAGS="$CFLAGS -O3 -falign-functions=32 -ffat-lto-objects -flto=4 -fno-math-errno -fno-semantic-interposition -fno-trapping-math -fstack-protector-strong -fzero-call-used-regs=used "
-export FCFLAGS="$FFLAGS -O3 -falign-functions=32 -ffat-lto-objects -flto=4 -fno-math-errno -fno-semantic-interposition -fno-trapping-math -fstack-protector-strong -fzero-call-used-regs=used "
-export FFLAGS="$FFLAGS -O3 -falign-functions=32 -ffat-lto-objects -flto=4 -fno-math-errno -fno-semantic-interposition -fno-trapping-math -fstack-protector-strong -fzero-call-used-regs=used "
-export CXXFLAGS="$CXXFLAGS -O3 -falign-functions=32 -ffat-lto-objects -flto=4 -fno-math-errno -fno-semantic-interposition -fno-trapping-math -fstack-protector-strong -fzero-call-used-regs=used "
+export CFLAGS="$CFLAGS -O3 -Ofast -falign-functions=32 -ffat-lto-objects -flto=auto -fno-semantic-interposition -fstack-protector-strong -fzero-call-used-regs=used -mprefer-vector-width=256 "
+export FCFLAGS="$FFLAGS -O3 -Ofast -falign-functions=32 -ffat-lto-objects -flto=auto -fno-semantic-interposition -fstack-protector-strong -fzero-call-used-regs=used -mprefer-vector-width=256 "
+export FFLAGS="$FFLAGS -O3 -Ofast -falign-functions=32 -ffat-lto-objects -flto=auto -fno-semantic-interposition -fstack-protector-strong -fzero-call-used-regs=used -mprefer-vector-width=256 "
+export CXXFLAGS="$CXXFLAGS -O3 -Ofast -falign-functions=32 -ffat-lto-objects -flto=auto -fno-semantic-interposition -fstack-protector-strong -fzero-call-used-regs=used -mprefer-vector-width=256 "
 %configure --disable-static --without-libtiff --disable-python --enable-sse --with-script-fu --enable-bundled-mypaint-brushes  --without-cairo-pdf --disable-gtk-doc-pdf --sysconfdir=/usr/share/defaults/gimp
 make  %{?_smp_mflags}
 
@@ -222,7 +222,7 @@ cd ../buildavx2;
 make %{?_smp_mflags} check || : || :
 
 %install
-export SOURCE_DATE_EPOCH=1617221218
+export SOURCE_DATE_EPOCH=1629133925
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/gimp
 cp %{_builddir}/gimp-2.10.24/COPYING %{buildroot}/usr/share/package-licenses/gimp/0dd432edfab90223f22e49c02e2124f87d6f0a56
@@ -4654,6 +4654,8 @@ popd
 /usr/lib64/haswell/libgimp-2.0.so
 /usr/lib64/haswell/libgimpbase-2.0.so
 /usr/lib64/haswell/libgimpcolor-2.0.so
+/usr/lib64/haswell/libgimpconfig-2.0.so
+/usr/lib64/haswell/libgimpmath-2.0.so
 /usr/lib64/haswell/libgimpui-2.0.so
 /usr/lib64/haswell/libgimpwidgets-2.0.so
 /usr/lib64/libgimp-2.0.so
@@ -5303,13 +5305,19 @@ popd
 /usr/lib64/gimp/2.0/modules/libdisplay-filter-color-blind.so
 /usr/lib64/gimp/2.0/modules/libdisplay-filter-color-blind.so.so.avx2
 /usr/lib64/gimp/2.0/modules/libdisplay-filter-gamma.so
+/usr/lib64/gimp/2.0/modules/libdisplay-filter-gamma.so.so.avx2
 /usr/lib64/gimp/2.0/modules/libdisplay-filter-high-contrast.so
+/usr/lib64/gimp/2.0/modules/libdisplay-filter-high-contrast.so.so.avx2
 /usr/lib64/haswell/libgimp-2.0.so.0
 /usr/lib64/haswell/libgimp-2.0.so.0.1000.24
 /usr/lib64/haswell/libgimpbase-2.0.so.0
 /usr/lib64/haswell/libgimpbase-2.0.so.0.1000.24
 /usr/lib64/haswell/libgimpcolor-2.0.so.0
 /usr/lib64/haswell/libgimpcolor-2.0.so.0.1000.24
+/usr/lib64/haswell/libgimpconfig-2.0.so.0
+/usr/lib64/haswell/libgimpconfig-2.0.so.0.1000.24
+/usr/lib64/haswell/libgimpmath-2.0.so.0
+/usr/lib64/haswell/libgimpmath-2.0.so.0.1000.24
 /usr/lib64/haswell/libgimpui-2.0.so.0
 /usr/lib64/haswell/libgimpui-2.0.so.0.1000.24
 /usr/lib64/haswell/libgimpwidgets-2.0.so.0
