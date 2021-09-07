@@ -1,4 +1,4 @@
-From 30b776b09c68d10dfb7288856fbddd045dcec4c7 Mon Sep 17 00:00:00 2001
+From 0000000000000000000000000000000000000000 Mon Sep 17 00:00:00 2001
 From: Ming Chen <ming.a.chen@intel.com>
 Date: Tue, 25 Feb 2020 10:42:53 +0800
 Subject: [PATCH] revise the check for destructor attribute
@@ -19,10 +19,10 @@ Signed-off-by: Ming Chen <ming.a.chen@intel.com>
  1 file changed, 1 insertion(+), 1 deletion(-)
 
 diff --git a/configure b/configure
-index 5c4229d..d865498 100755
+index b5b0f66..5b46f7c 100755
 --- a/configure
 +++ b/configure
-@@ -26580,7 +26580,7 @@ else
+@@ -26532,7 +26532,7 @@ else
                      int foo( void ) __attribute__((destructor));
  
  int
@@ -31,6 +31,3 @@ index 5c4229d..d865498 100755
  {
  
    ;
--- 
-2.25.0
-

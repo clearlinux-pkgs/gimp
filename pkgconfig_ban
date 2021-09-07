@@ -1,20 +1,20 @@
 # This file contains pkgconfig build requirements that get picked up
 # but are undesirable. One entry per line, no whitespace.
-oogtk-mac-integration
+OpenEXR
+gegl-0.2
+gegl-gegl_major_minor_version
+gio-windows-2.0
+gtk-mac-integration
 gtk-mac-integration-gtk2
 lcms
-poppler-glib
-pygtk-2.0
-webkit-1.0
-gegl-0.2
-gtk-mac-integration
-gio-windows-2.0
+libheif
 libmypaint
 libopenjp2
-mypaint-brushes-1.0
-poppler-data
-OpenEXR
-gegl-gegl_major_minor_version
-libheif
 libwmf
+mypaint-brushes-1.0
+oogtk-mac-integration
+poppler-data
+poppler-glib
 pycairo
+pygtk-2.0
+webkit-1.0

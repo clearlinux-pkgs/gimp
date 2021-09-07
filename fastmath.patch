@@ -1,16 +1,7 @@
---- gimp-2.8.22/libgimpmath/gimpvector.c~	2017-04-30 21:47:39.000000000 +0000
-+++ gimp-2.8.22/libgimpmath/gimpvector.c	2017-06-28 23:51:03.535412752 +0000
-@@ -22,6 +22,8 @@
-  * <http://www.gnu.org/licenses/>.
-  */
- 
-+#pragma GCC optimize ("fast-math")
-+
- /**********************************************/
- /* A little collection of useful vector stuff */
- /**********************************************/
---- gimp-2.8.22/libgimpmath/gimpmatrix.c~	2017-04-30 21:47:39.000000000 +0000
-+++ gimp-2.8.22/libgimpmath/gimpmatrix.c	2017-06-28 23:51:14.674273862 +0000
+diff --git a/libgimpmath/gimpmatrix.c b/libgimpmath/gimpmatrix.c
+index ebee392..b21d478 100644
+--- a/libgimpmath/gimpmatrix.c
++++ b/libgimpmath/gimpmatrix.c
 @@ -25,7 +25,7 @@
  
  #include "gimpmath.h"
@@ -20,3 +11,16 @@
  /**
   * SECTION: gimpmatrix
   * @title: GimpMatrix
+diff --git a/libgimpmath/gimpvector.c b/libgimpmath/gimpvector.c
+index 5f2b174..711cb27 100644
+--- a/libgimpmath/gimpvector.c
++++ b/libgimpmath/gimpvector.c
+@@ -22,6 +22,8 @@
+  * <https://www.gnu.org/licenses/>.
+  */
+ 
++#pragma GCC optimize ("fast-math")
++
+ /**********************************************/
+ /* A little collection of useful vector stuff */
+ /**********************************************/
