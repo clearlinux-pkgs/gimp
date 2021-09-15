@@ -4,6 +4,10 @@ Configure miss: OpenEXR >= 1.6.1
 Configure miss: OpenEXR >= 1.6.1
 Configure miss: aa_printf in -laa
 Configure miss: aa_printf in -laa
+Configure miss: g++ option to enable C++11 features
+Configure miss: g++ option to enable C++11 features
+Configure miss: gcc options needed to detect all undeclared functions
+Configure miss: gcc options needed to detect all undeclared functions
 Configure miss: if GIMP should open a debug console at start
 Configure miss: if GIMP should open a debug console at start
 Configure miss: if GTK+ is version 2.26.0 or newer (bogus placeholder check)
@@ -40,10 +44,6 @@ Configure miss: rint
 Configure miss: rint
 Configure miss: sys/thr.h
 Configure miss: sys/thr.h
-Configure miss: sys/thr.h presence
-Configure miss: sys/thr.h presence
-Configure miss: sys/thr.h usability
-Configure miss: sys/thr.h usability
 Configure miss: the alternative folder containing 32-bit DLLs on Windows
 Configure miss: the alternative folder containing 32-bit DLLs on Windows
 Configure miss: thr_self
