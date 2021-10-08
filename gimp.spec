@@ -4,7 +4,7 @@
 #
 Name     : gimp
 Version  : 2.10.28
-Release  : 84
+Release  : 85
 URL      : https://download.gimp.org/mirror/pub/gimp/v2.10/gimp-2.10.28.tar.bz2
 Source0  : https://download.gimp.org/mirror/pub/gimp/v2.10/gimp-2.10.28.tar.bz2
 Summary  : GIMP Library
@@ -12,6 +12,7 @@ Group    : Development/Tools
 License  : BSD-3-Clause GPL-2.0 GPL-3.0 LGPL-3.0
 Requires: gimp-bin = %{version}-%{release}
 Requires: gimp-data = %{version}-%{release}
+Requires: gimp-filemap = %{version}-%{release}
 Requires: gimp-lib = %{version}-%{release}
 Requires: gimp-libexec = %{version}-%{release}
 Requires: gimp-license = %{version}-%{release}
@@ -94,6 +95,7 @@ Group: Binaries
 Requires: gimp-data = %{version}-%{release}
 Requires: gimp-libexec = %{version}-%{release}
 Requires: gimp-license = %{version}-%{release}
+Requires: gimp-filemap = %{version}-%{release}
 
 %description bin
 bin components for the gimp package.
@@ -129,12 +131,21 @@ Requires: gimp-man = %{version}-%{release}
 doc components for the gimp package.
 
 
+%package filemap
+Summary: filemap components for the gimp package.
+Group: Default
+
+%description filemap
+filemap components for the gimp package.
+
+
 %package lib
 Summary: lib components for the gimp package.
 Group: Libraries
 Requires: gimp-data = %{version}-%{release}
 Requires: gimp-libexec = %{version}-%{release}
 Requires: gimp-license = %{version}-%{release}
+Requires: gimp-filemap = %{version}-%{release}
 
 %description lib
 lib components for the gimp package.
@@ -144,6 +155,7 @@ lib components for the gimp package.
 Summary: libexec components for the gimp package.
 Group: Default
 Requires: gimp-license = %{version}-%{release}
+Requires: gimp-filemap = %{version}-%{release}
 
 %description libexec
 libexec components for the gimp package.
@@ -187,7 +199,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1633729063
+export SOURCE_DATE_EPOCH=1633730155
 unset LD_AS_NEEDED
 export GCC_IGNORE_WERROR=1
 export AR=gcc-ar
@@ -220,7 +232,7 @@ cd ../buildavx2;
 make %{?_smp_mflags} check || : || :
 
 %install
-export SOURCE_DATE_EPOCH=1633729063
+export SOURCE_DATE_EPOCH=1633730155
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/gimp
 cp %{_builddir}/gimp-2.10.28/COPYING %{buildroot}/usr/share/package-licenses/gimp/0dd432edfab90223f22e49c02e2124f87d6f0a56
@@ -230,7 +242,8 @@ cp %{_builddir}/gimp-2.10.28/plug-ins/file-dds/COPYING %{buildroot}/usr/share/pa
 cp %{_builddir}/gimp-2.10.28/plug-ins/script-fu/ftx/LICENSE %{buildroot}/usr/share/package-licenses/gimp/8d629cc7c615f0311a8a93c37d754d1ccb8c47cb
 cp %{_builddir}/gimp-2.10.28/plug-ins/script-fu/tinyscheme/COPYING %{buildroot}/usr/share/package-licenses/gimp/caf3c22163d024d0943740fd0c1b1c80513fea7b
 pushd ../buildavx2/
-%make_install_avx2
+%make_install_v3
+/usr/bin/elf-move.py avx2 %{buildroot}-v3 %{buildroot}/usr/share/clear/optimized-elf/ %{buildroot}/usr/share/clear/filemap/filemap-%{name}
 popd
 %make_install
 %find_lang gimp20
@@ -368,12 +381,7 @@ for i in %{buildroot}/usr/share/gimp/2.0/icons/*; do  /usr/bin/gtk-update-icon-c
 /usr/bin/gimp-console-2.10
 /usr/bin/gimp-test-clipboard-2.0
 /usr/bin/gimptool-2.0
-/usr/bin/haswell/gimp
-/usr/bin/haswell/gimp-2.10
-/usr/bin/haswell/gimp-console
-/usr/bin/haswell/gimp-console-2.10
-/usr/bin/haswell/gimp-test-clipboard-2.0
-/usr/bin/haswell/gimptool-2.0
+/usr/share/clear/optimized-elf/bin*
 
 %files data
 %defattr(-,root,root,-)
@@ -4646,13 +4654,6 @@ for i in %{buildroot}/usr/share/gimp/2.0/icons/*; do  /usr/bin/gtk-update-icon-c
 /usr/include/gimp-2.0/libgimpwidgets/gimpwidgetstypes.h
 /usr/include/gimp-2.0/libgimpwidgets/gimpwidgetsutils.h
 /usr/include/gimp-2.0/libgimpwidgets/gimpzoommodel.h
-/usr/lib64/haswell/libgimp-2.0.so
-/usr/lib64/haswell/libgimpbase-2.0.so
-/usr/lib64/haswell/libgimpcolor-2.0.so
-/usr/lib64/haswell/libgimpconfig-2.0.so
-/usr/lib64/haswell/libgimpmath-2.0.so
-/usr/lib64/haswell/libgimpui-2.0.so
-/usr/lib64/haswell/libgimpwidgets-2.0.so
 /usr/lib64/libgimp-2.0.so
 /usr/lib64/libgimpbase-2.0.so
 /usr/lib64/libgimpcolor-2.0.so
@@ -5285,17 +5286,12 @@ for i in %{buildroot}/usr/share/gimp/2.0/icons/*; do  /usr/bin/gtk-update-icon-c
 /usr/share/gtk-doc/html/libgimpwidgets/up-insensitive.png
 /usr/share/gtk-doc/html/libgimpwidgets/up.png
 
+%files filemap
+%defattr(-,root,root,-)
+/usr/share/clear/filemap/filemap-gimp
+
 %files lib
 %defattr(-,root,root,-)
-/usr/lib64/gimp/2.0/modules/haswell/libcolor-selector-cmyk.so
-/usr/lib64/gimp/2.0/modules/haswell/libcolor-selector-water.so
-/usr/lib64/gimp/2.0/modules/haswell/libcolor-selector-wheel.so
-/usr/lib64/gimp/2.0/modules/haswell/libcontroller-linux-input.so
-/usr/lib64/gimp/2.0/modules/haswell/libcontroller-midi.so
-/usr/lib64/gimp/2.0/modules/haswell/libdisplay-filter-clip-warning.so
-/usr/lib64/gimp/2.0/modules/haswell/libdisplay-filter-color-blind.so
-/usr/lib64/gimp/2.0/modules/haswell/libdisplay-filter-gamma.so
-/usr/lib64/gimp/2.0/modules/haswell/libdisplay-filter-high-contrast.so
 /usr/lib64/gimp/2.0/modules/libcolor-selector-cmyk.so
 /usr/lib64/gimp/2.0/modules/libcolor-selector-water.so
 /usr/lib64/gimp/2.0/modules/libcolor-selector-wheel.so
@@ -5305,20 +5301,6 @@ for i in %{buildroot}/usr/share/gimp/2.0/icons/*; do  /usr/bin/gtk-update-icon-c
 /usr/lib64/gimp/2.0/modules/libdisplay-filter-color-blind.so
 /usr/lib64/gimp/2.0/modules/libdisplay-filter-gamma.so
 /usr/lib64/gimp/2.0/modules/libdisplay-filter-high-contrast.so
-/usr/lib64/haswell/libgimp-2.0.so.0
-/usr/lib64/haswell/libgimp-2.0.so.0.1000.28
-/usr/lib64/haswell/libgimpbase-2.0.so.0
-/usr/lib64/haswell/libgimpbase-2.0.so.0.1000.28
-/usr/lib64/haswell/libgimpcolor-2.0.so.0
-/usr/lib64/haswell/libgimpcolor-2.0.so.0.1000.28
-/usr/lib64/haswell/libgimpconfig-2.0.so.0
-/usr/lib64/haswell/libgimpconfig-2.0.so.0.1000.28
-/usr/lib64/haswell/libgimpmath-2.0.so.0
-/usr/lib64/haswell/libgimpmath-2.0.so.0.1000.28
-/usr/lib64/haswell/libgimpui-2.0.so.0
-/usr/lib64/haswell/libgimpui-2.0.so.0.1000.28
-/usr/lib64/haswell/libgimpwidgets-2.0.so.0
-/usr/lib64/haswell/libgimpwidgets-2.0.so.0.1000.28
 /usr/lib64/libgimp-2.0.so.0
 /usr/lib64/libgimp-2.0.so.0.1000.28
 /usr/lib64/libgimpbase-2.0.so.0
@@ -5337,10 +5319,12 @@ for i in %{buildroot}/usr/share/gimp/2.0/icons/*; do  /usr/bin/gtk-update-icon-c
 /usr/lib64/libgimpui-2.0.so.0.1000.28
 /usr/lib64/libgimpwidgets-2.0.so.0
 /usr/lib64/libgimpwidgets-2.0.so.0.1000.28
+/usr/share/clear/optimized-elf/lib*
 
 %files libexec
 %defattr(-,root,root,-)
 /usr/libexec/gimp-debug-tool-2.0
+/usr/share/clear/optimized-elf/exec*
 
 %files license
 %defattr(0644,root,root,0755)
