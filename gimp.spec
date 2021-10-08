@@ -4,7 +4,7 @@
 #
 Name     : gimp
 Version  : 2.10.28
-Release  : 83
+Release  : 84
 URL      : https://download.gimp.org/mirror/pub/gimp/v2.10/gimp-2.10.28.tar.bz2
 Source0  : https://download.gimp.org/mirror/pub/gimp/v2.10/gimp-2.10.28.tar.bz2
 Summary  : GIMP Library
@@ -187,7 +187,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1632783508
+export SOURCE_DATE_EPOCH=1633729063
 unset LD_AS_NEEDED
 export GCC_IGNORE_WERROR=1
 export AR=gcc-ar
@@ -202,11 +202,11 @@ make  %{?_smp_mflags}
 
 unset PKG_CONFIG_PATH
 pushd ../buildavx2/
-export CFLAGS="$CFLAGS -m64 -march=haswell"
-export CXXFLAGS="$CXXFLAGS -m64 -march=haswell"
-export FFLAGS="$FFLAGS -m64 -march=haswell"
-export FCFLAGS="$FCFLAGS -m64 -march=haswell"
-export LDFLAGS="$LDFLAGS -m64 -march=haswell"
+export CFLAGS="$CFLAGS -m64 -march=x86-64-v3"
+export CXXFLAGS="$CXXFLAGS -m64 -march=x86-64-v3"
+export FFLAGS="$FFLAGS -m64 -march=x86-64-v3"
+export FCFLAGS="$FCFLAGS -m64 -march=x86-64-v3"
+export LDFLAGS="$LDFLAGS -m64 -march=x86-64-v3"
 %configure --disable-static --without-libtiff --disable-python --enable-sse --with-script-fu --enable-bundled-mypaint-brushes  --without-cairo-pdf --disable-gtk-doc-pdf --sysconfdir=/usr/share/defaults/gimp
 make  %{?_smp_mflags}
 popd
@@ -220,7 +220,7 @@ cd ../buildavx2;
 make %{?_smp_mflags} check || : || :
 
 %install
-export SOURCE_DATE_EPOCH=1632783508
+export SOURCE_DATE_EPOCH=1633729063
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/gimp
 cp %{_builddir}/gimp-2.10.28/COPYING %{buildroot}/usr/share/package-licenses/gimp/0dd432edfab90223f22e49c02e2124f87d6f0a56
@@ -240,9 +240,6 @@ popd
 %find_lang gimp20-std-plug-ins
 ## install_append content
 for i in %{buildroot}/usr/share/gimp/2.0/icons/*; do  /usr/bin/gtk-update-icon-cache $i ; done
-pushd %{buildroot}/usr/lib64/gimp/2.0/modules/haswell/
-for i in *.so ; do mv $i ../$i.so.avx2 ; done
-popd
 ## install_append end
 
 %files
@@ -5290,22 +5287,24 @@ popd
 
 %files lib
 %defattr(-,root,root,-)
+/usr/lib64/gimp/2.0/modules/haswell/libcolor-selector-cmyk.so
+/usr/lib64/gimp/2.0/modules/haswell/libcolor-selector-water.so
+/usr/lib64/gimp/2.0/modules/haswell/libcolor-selector-wheel.so
+/usr/lib64/gimp/2.0/modules/haswell/libcontroller-linux-input.so
+/usr/lib64/gimp/2.0/modules/haswell/libcontroller-midi.so
+/usr/lib64/gimp/2.0/modules/haswell/libdisplay-filter-clip-warning.so
+/usr/lib64/gimp/2.0/modules/haswell/libdisplay-filter-color-blind.so
+/usr/lib64/gimp/2.0/modules/haswell/libdisplay-filter-gamma.so
+/usr/lib64/gimp/2.0/modules/haswell/libdisplay-filter-high-contrast.so
 /usr/lib64/gimp/2.0/modules/libcolor-selector-cmyk.so
-/usr/lib64/gimp/2.0/modules/libcolor-selector-cmyk.so.so.avx2
 /usr/lib64/gimp/2.0/modules/libcolor-selector-water.so
-/usr/lib64/gimp/2.0/modules/libcolor-selector-water.so.so.avx2
 /usr/lib64/gimp/2.0/modules/libcolor-selector-wheel.so
-/usr/lib64/gimp/2.0/modules/libcolor-selector-wheel.so.so.avx2
 /usr/lib64/gimp/2.0/modules/libcontroller-linux-input.so
 /usr/lib64/gimp/2.0/modules/libcontroller-midi.so
 /usr/lib64/gimp/2.0/modules/libdisplay-filter-clip-warning.so
-/usr/lib64/gimp/2.0/modules/libdisplay-filter-clip-warning.so.so.avx2
 /usr/lib64/gimp/2.0/modules/libdisplay-filter-color-blind.so
-/usr/lib64/gimp/2.0/modules/libdisplay-filter-color-blind.so.so.avx2
 /usr/lib64/gimp/2.0/modules/libdisplay-filter-gamma.so
-/usr/lib64/gimp/2.0/modules/libdisplay-filter-gamma.so.so.avx2
 /usr/lib64/gimp/2.0/modules/libdisplay-filter-high-contrast.so
-/usr/lib64/gimp/2.0/modules/libdisplay-filter-high-contrast.so.so.avx2
 /usr/lib64/haswell/libgimp-2.0.so.0
 /usr/lib64/haswell/libgimp-2.0.so.0.1000.28
 /usr/lib64/haswell/libgimpbase-2.0.so.0
