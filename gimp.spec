@@ -4,7 +4,7 @@
 #
 Name     : gimp
 Version  : 2.10.28
-Release  : 85
+Release  : 86
 URL      : https://download.gimp.org/mirror/pub/gimp/v2.10/gimp-2.10.28.tar.bz2
 Source0  : https://download.gimp.org/mirror/pub/gimp/v2.10/gimp-2.10.28.tar.bz2
 Summary  : GIMP Library
@@ -199,7 +199,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1633730155
+export SOURCE_DATE_EPOCH=1633751026
 unset LD_AS_NEEDED
 export GCC_IGNORE_WERROR=1
 export AR=gcc-ar
@@ -232,7 +232,7 @@ cd ../buildavx2;
 make %{?_smp_mflags} check || : || :
 
 %install
-export SOURCE_DATE_EPOCH=1633730155
+export SOURCE_DATE_EPOCH=1633751026
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/gimp
 cp %{_builddir}/gimp-2.10.28/COPYING %{buildroot}/usr/share/package-licenses/gimp/0dd432edfab90223f22e49c02e2124f87d6f0a56
