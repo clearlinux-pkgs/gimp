@@ -1616,6 +1616,8 @@ libgimpui-2.0.so.0:gimp_zoom_preview_new_with_model_from_drawable_id
 libgimpwidgets-2.0.so.0:_gimp_pick_button_default_pick
 libgimpwidgets-2.0.so.0:_gimp_pick_button_kwin_available
 libgimpwidgets-2.0.so.0:_gimp_pick_button_kwin_pick
+libgimpwidgets-2.0.so.0:_gimp_pick_button_xdg_available
+libgimpwidgets-2.0.so.0:_gimp_pick_button_xdg_pick
 libgimpwidgets-2.0.so.0:_gimp_unit_store_sync_units
 libgimpwidgets-2.0.so.0:_gimp_widgets_marshal_BOOLEAN__POINTER
 libgimpwidgets-2.0.so.0:_gimp_widgets_marshal_VOID__DOUBLE_DOUBLE
