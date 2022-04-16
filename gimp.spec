@@ -4,7 +4,7 @@
 #
 Name     : gimp
 Version  : 2.10.30
-Release  : 93
+Release  : 94
 URL      : https://download.gimp.org/mirror/pub/gimp/v2.10/gimp-2.10.30.tar.bz2
 Source0  : https://download.gimp.org/mirror/pub/gimp/v2.10/gimp-2.10.30.tar.bz2
 Summary  : GIMP Library
