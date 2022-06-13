@@ -28,6 +28,8 @@ Configure miss: libheif > 1.5.1
 Configure miss: libheif > 1.5.1
 Configure miss: libheif >= 1.5.0
 Configure miss: libheif >= 1.5.0
+Configure miss: libjxl >= 0.6.1
+Configure miss: libjxl >= 0.6.1
 Configure miss: libopenjp2 >= 2.1.0
 Configure miss: libopenjp2 >= 2.1.0
 Configure miss: libwmf >= 0.2.8
@@ -62,3 +64,5 @@ Configure miss: whether to turn on profiling
 Configure miss: whether to turn on profiling
 Configure miss: whether we build a relocatable package
 Configure miss: whether we build a relocatable package
+Configure miss: x86_64-generic-linux-gnu-file
+Configure miss: x86_64-generic-linux-gnu-file

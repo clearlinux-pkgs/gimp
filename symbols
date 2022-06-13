@@ -764,6 +764,7 @@ libgimp-2.0.so.0:gimp_pixel_rgn_set_row
 libgimp-2.0.so.0:gimp_pixel_rgns_process
 libgimp-2.0.so.0:gimp_pixel_rgns_register
 libgimp-2.0.so.0:gimp_pixel_rgns_register2
+libgimp-2.0.so.0:gimp_plug_in_error_quark
 libgimp-2.0.so.0:gimp_plugin_domain_register
 libgimp-2.0.so.0:gimp_plugin_enable_precision
 libgimp-2.0.so.0:gimp_plugin_get_pdb_error_handler
