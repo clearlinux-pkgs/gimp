@@ -4,7 +4,7 @@
 #
 Name     : gimp
 Version  : 2.10.32
-Release  : 95
+Release  : 96
 URL      : https://download.gimp.org/mirror/pub/gimp/v2.10/gimp-2.10.32.tar.bz2
 Source0  : https://download.gimp.org/mirror/pub/gimp/v2.10/gimp-2.10.32.tar.bz2
 Summary  : GIMP Library
@@ -199,7 +199,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1655156080
+export SOURCE_DATE_EPOCH=1656031581
 unset LD_AS_NEEDED
 export GCC_IGNORE_WERROR=1
 export AR=gcc-ar
@@ -232,7 +232,7 @@ cd ../buildavx2;
 make %{?_smp_mflags} check || : || :
 
 %install
-export SOURCE_DATE_EPOCH=1655156080
+export SOURCE_DATE_EPOCH=1656031581
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/gimp
 cp %{_builddir}/gimp-2.10.32/COPYING %{buildroot}/usr/share/package-licenses/gimp/0dd432edfab90223f22e49c02e2124f87d6f0a56
@@ -253,7 +253,7 @@ popd
 ## install_append content
 for i in %{buildroot}/usr/share/gimp/2.0/icons/*; do  /usr/bin/gtk-update-icon-cache $i ; done
 ## install_append end
-/usr/bin/elf-move.py avx2 %{buildroot}-v3 %{buildroot}/usr/share/clear/optimized-elf/ %{buildroot}/usr/share/clear/filemap/filemap-%{name}
+/usr/bin/elf-move.py avx2 %{buildroot}-v3 %{buildroot} %{buildroot}/usr/share/clear/filemap/filemap-%{name}
 
 %files
 %defattr(-,root,root,-)
@@ -372,6 +372,119 @@ for i in %{buildroot}/usr/share/gimp/2.0/icons/*; do  /usr/bin/gtk-update-icon-c
 /usr/lib64/gimp/2.0/plug-ins/warp/warp
 /usr/lib64/gimp/2.0/plug-ins/wavelet-decompose/wavelet-decompose
 /usr/lib64/gimp/2.0/plug-ins/web-browser/web-browser
+/usr/lib64/glibc-hwcaps/x86-64-v3/align-layers
+/usr/lib64/glibc-hwcaps/x86-64-v3/animation-optimize
+/usr/lib64/glibc-hwcaps/x86-64-v3/animation-play
+/usr/lib64/glibc-hwcaps/x86-64-v3/blinds
+/usr/lib64/glibc-hwcaps/x86-64-v3/blur
+/usr/lib64/glibc-hwcaps/x86-64-v3/border-average
+/usr/lib64/glibc-hwcaps/x86-64-v3/busy-dialog
+/usr/lib64/glibc-hwcaps/x86-64-v3/cartoon
+/usr/lib64/glibc-hwcaps/x86-64-v3/checkerboard
+/usr/lib64/glibc-hwcaps/x86-64-v3/cml-explorer
+/usr/lib64/glibc-hwcaps/x86-64-v3/color-cube-analyze
+/usr/lib64/glibc-hwcaps/x86-64-v3/color-enhance
+/usr/lib64/glibc-hwcaps/x86-64-v3/colorify
+/usr/lib64/glibc-hwcaps/x86-64-v3/colormap-remap
+/usr/lib64/glibc-hwcaps/x86-64-v3/compose
+/usr/lib64/glibc-hwcaps/x86-64-v3/contrast-retinex
+/usr/lib64/glibc-hwcaps/x86-64-v3/crop-zealous
+/usr/lib64/glibc-hwcaps/x86-64-v3/curve-bend
+/usr/lib64/glibc-hwcaps/x86-64-v3/decompose
+/usr/lib64/glibc-hwcaps/x86-64-v3/depth-merge
+/usr/lib64/glibc-hwcaps/x86-64-v3/despeckle
+/usr/lib64/glibc-hwcaps/x86-64-v3/destripe
+/usr/lib64/glibc-hwcaps/x86-64-v3/edge-dog
+/usr/lib64/glibc-hwcaps/x86-64-v3/emboss
+/usr/lib64/glibc-hwcaps/x86-64-v3/file-bmp
+/usr/lib64/glibc-hwcaps/x86-64-v3/file-cel
+/usr/lib64/glibc-hwcaps/x86-64-v3/file-compressor
+/usr/lib64/glibc-hwcaps/x86-64-v3/file-csource
+/usr/lib64/glibc-hwcaps/x86-64-v3/file-darktable
+/usr/lib64/glibc-hwcaps/x86-64-v3/file-dds
+/usr/lib64/glibc-hwcaps/x86-64-v3/file-desktop-link
+/usr/lib64/glibc-hwcaps/x86-64-v3/file-dicom
+/usr/lib64/glibc-hwcaps/x86-64-v3/file-faxg3
+/usr/lib64/glibc-hwcaps/x86-64-v3/file-fits
+/usr/lib64/glibc-hwcaps/x86-64-v3/file-fli
+/usr/lib64/glibc-hwcaps/x86-64-v3/file-gbr
+/usr/lib64/glibc-hwcaps/x86-64-v3/file-gegl
+/usr/lib64/glibc-hwcaps/x86-64-v3/file-gif-load
+/usr/lib64/glibc-hwcaps/x86-64-v3/file-gif-save
+/usr/lib64/glibc-hwcaps/x86-64-v3/file-gih
+/usr/lib64/glibc-hwcaps/x86-64-v3/file-glob
+/usr/lib64/glibc-hwcaps/x86-64-v3/file-header
+/usr/lib64/glibc-hwcaps/x86-64-v3/file-html-table
+/usr/lib64/glibc-hwcaps/x86-64-v3/file-ico
+/usr/lib64/glibc-hwcaps/x86-64-v3/file-jpeg
+/usr/lib64/glibc-hwcaps/x86-64-v3/file-pat
+/usr/lib64/glibc-hwcaps/x86-64-v3/file-pcx
+/usr/lib64/glibc-hwcaps/x86-64-v3/file-pdf-load
+/usr/lib64/glibc-hwcaps/x86-64-v3/file-pix
+/usr/lib64/glibc-hwcaps/x86-64-v3/file-png
+/usr/lib64/glibc-hwcaps/x86-64-v3/file-pnm
+/usr/lib64/glibc-hwcaps/x86-64-v3/file-ps
+/usr/lib64/glibc-hwcaps/x86-64-v3/file-psd
+/usr/lib64/glibc-hwcaps/x86-64-v3/file-psp
+/usr/lib64/glibc-hwcaps/x86-64-v3/file-raw-data
+/usr/lib64/glibc-hwcaps/x86-64-v3/file-raw-placeholder
+/usr/lib64/glibc-hwcaps/x86-64-v3/file-rawtherapee
+/usr/lib64/glibc-hwcaps/x86-64-v3/file-sgi
+/usr/lib64/glibc-hwcaps/x86-64-v3/file-sunras
+/usr/lib64/glibc-hwcaps/x86-64-v3/file-svg
+/usr/lib64/glibc-hwcaps/x86-64-v3/file-tga
+/usr/lib64/glibc-hwcaps/x86-64-v3/file-tiff
+/usr/lib64/glibc-hwcaps/x86-64-v3/file-webp
+/usr/lib64/glibc-hwcaps/x86-64-v3/file-xbm
+/usr/lib64/glibc-hwcaps/x86-64-v3/file-xmc
+/usr/lib64/glibc-hwcaps/x86-64-v3/file-xpm
+/usr/lib64/glibc-hwcaps/x86-64-v3/file-xwd
+/usr/lib64/glibc-hwcaps/x86-64-v3/film
+/usr/lib64/glibc-hwcaps/x86-64-v3/filter-pack
+/usr/lib64/glibc-hwcaps/x86-64-v3/flame
+/usr/lib64/glibc-hwcaps/x86-64-v3/fractal-explorer
+/usr/lib64/glibc-hwcaps/x86-64-v3/fractal-trace
+/usr/lib64/glibc-hwcaps/x86-64-v3/gfig
+/usr/lib64/glibc-hwcaps/x86-64-v3/gimpressionist
+/usr/lib64/glibc-hwcaps/x86-64-v3/goat-exercise
+/usr/lib64/glibc-hwcaps/x86-64-v3/gradient-flare
+/usr/lib64/glibc-hwcaps/x86-64-v3/gradient-map
+/usr/lib64/glibc-hwcaps/x86-64-v3/grid
+/usr/lib64/glibc-hwcaps/x86-64-v3/guillotine
+/usr/lib64/glibc-hwcaps/x86-64-v3/help
+/usr/lib64/glibc-hwcaps/x86-64-v3/hot
+/usr/lib64/glibc-hwcaps/x86-64-v3/ifs-compose
+/usr/lib64/glibc-hwcaps/x86-64-v3/imagemap
+/usr/lib64/glibc-hwcaps/x86-64-v3/jigsaw
+/usr/lib64/glibc-hwcaps/x86-64-v3/lighting
+/usr/lib64/glibc-hwcaps/x86-64-v3/mail
+/usr/lib64/glibc-hwcaps/x86-64-v3/map-object
+/usr/lib64/glibc-hwcaps/x86-64-v3/max-rgb
+/usr/lib64/glibc-hwcaps/x86-64-v3/metadata-editor
+/usr/lib64/glibc-hwcaps/x86-64-v3/metadata-viewer
+/usr/lib64/glibc-hwcaps/x86-64-v3/nl-filter
+/usr/lib64/glibc-hwcaps/x86-64-v3/pagecurl
+/usr/lib64/glibc-hwcaps/x86-64-v3/photocopy
+/usr/lib64/glibc-hwcaps/x86-64-v3/plugin-browser
+/usr/lib64/glibc-hwcaps/x86-64-v3/print
+/usr/lib64/glibc-hwcaps/x86-64-v3/procedure-browser
+/usr/lib64/glibc-hwcaps/x86-64-v3/qbist
+/usr/lib64/glibc-hwcaps/x86-64-v3/sample-colorize
+/usr/lib64/glibc-hwcaps/x86-64-v3/screenshot
+/usr/lib64/glibc-hwcaps/x86-64-v3/script-fu
+/usr/lib64/glibc-hwcaps/x86-64-v3/selection-to-path
+/usr/lib64/glibc-hwcaps/x86-64-v3/sharpen
+/usr/lib64/glibc-hwcaps/x86-64-v3/smooth-palette
+/usr/lib64/glibc-hwcaps/x86-64-v3/softglow
+/usr/lib64/glibc-hwcaps/x86-64-v3/sparkle
+/usr/lib64/glibc-hwcaps/x86-64-v3/sphere-designer
+/usr/lib64/glibc-hwcaps/x86-64-v3/tile
+/usr/lib64/glibc-hwcaps/x86-64-v3/tile-small
+/usr/lib64/glibc-hwcaps/x86-64-v3/unit-editor
+/usr/lib64/glibc-hwcaps/x86-64-v3/van-gogh-lic
+/usr/lib64/glibc-hwcaps/x86-64-v3/warp
+/usr/lib64/glibc-hwcaps/x86-64-v3/wavelet-decompose
+/usr/lib64/glibc-hwcaps/x86-64-v3/web-browser
 
 %files bin
 %defattr(-,root,root,-)
@@ -5307,6 +5420,42 @@ for i in %{buildroot}/usr/share/gimp/2.0/icons/*; do  /usr/bin/gtk-update-icon-c
 /usr/lib64/gimp/2.0/modules/libdisplay-filter-color-blind.so
 /usr/lib64/gimp/2.0/modules/libdisplay-filter-gamma.so
 /usr/lib64/gimp/2.0/modules/libdisplay-filter-high-contrast.so
+/usr/lib64/glibc-hwcaps/x86-64-v3/libcolor-selector-cmyk.so
+/usr/lib64/glibc-hwcaps/x86-64-v3/libcolor-selector-water.so
+/usr/lib64/glibc-hwcaps/x86-64-v3/libcolor-selector-wheel.so
+/usr/lib64/glibc-hwcaps/x86-64-v3/libcontroller-linux-input.so
+/usr/lib64/glibc-hwcaps/x86-64-v3/libcontroller-midi.so
+/usr/lib64/glibc-hwcaps/x86-64-v3/libdisplay-filter-clip-warning.so
+/usr/lib64/glibc-hwcaps/x86-64-v3/libdisplay-filter-color-blind.so
+/usr/lib64/glibc-hwcaps/x86-64-v3/libdisplay-filter-gamma.so
+/usr/lib64/glibc-hwcaps/x86-64-v3/libdisplay-filter-high-contrast.so
+/usr/lib64/glibc-hwcaps/x86-64-v3/libgimp-2.0.so
+/usr/lib64/glibc-hwcaps/x86-64-v3/libgimp-2.0.so.0
+/usr/lib64/glibc-hwcaps/x86-64-v3/libgimp-2.0.so.0.1000.32
+/usr/lib64/glibc-hwcaps/x86-64-v3/libgimpbase-2.0.so
+/usr/lib64/glibc-hwcaps/x86-64-v3/libgimpbase-2.0.so.0
+/usr/lib64/glibc-hwcaps/x86-64-v3/libgimpbase-2.0.so.0.1000.32
+/usr/lib64/glibc-hwcaps/x86-64-v3/libgimpcolor-2.0.so
+/usr/lib64/glibc-hwcaps/x86-64-v3/libgimpcolor-2.0.so.0
+/usr/lib64/glibc-hwcaps/x86-64-v3/libgimpcolor-2.0.so.0.1000.32
+/usr/lib64/glibc-hwcaps/x86-64-v3/libgimpconfig-2.0.so
+/usr/lib64/glibc-hwcaps/x86-64-v3/libgimpconfig-2.0.so.0
+/usr/lib64/glibc-hwcaps/x86-64-v3/libgimpconfig-2.0.so.0.1000.32
+/usr/lib64/glibc-hwcaps/x86-64-v3/libgimpmath-2.0.so
+/usr/lib64/glibc-hwcaps/x86-64-v3/libgimpmath-2.0.so.0
+/usr/lib64/glibc-hwcaps/x86-64-v3/libgimpmath-2.0.so.0.1000.32
+/usr/lib64/glibc-hwcaps/x86-64-v3/libgimpmodule-2.0.so
+/usr/lib64/glibc-hwcaps/x86-64-v3/libgimpmodule-2.0.so.0
+/usr/lib64/glibc-hwcaps/x86-64-v3/libgimpmodule-2.0.so.0.1000.32
+/usr/lib64/glibc-hwcaps/x86-64-v3/libgimpthumb-2.0.so
+/usr/lib64/glibc-hwcaps/x86-64-v3/libgimpthumb-2.0.so.0
+/usr/lib64/glibc-hwcaps/x86-64-v3/libgimpthumb-2.0.so.0.1000.32
+/usr/lib64/glibc-hwcaps/x86-64-v3/libgimpui-2.0.so
+/usr/lib64/glibc-hwcaps/x86-64-v3/libgimpui-2.0.so.0
+/usr/lib64/glibc-hwcaps/x86-64-v3/libgimpui-2.0.so.0.1000.32
+/usr/lib64/glibc-hwcaps/x86-64-v3/libgimpwidgets-2.0.so
+/usr/lib64/glibc-hwcaps/x86-64-v3/libgimpwidgets-2.0.so.0
+/usr/lib64/glibc-hwcaps/x86-64-v3/libgimpwidgets-2.0.so.0.1000.32
 /usr/lib64/libgimp-2.0.so.0
 /usr/lib64/libgimp-2.0.so.0.1000.32
 /usr/lib64/libgimpbase-2.0.so.0
@@ -5325,7 +5474,6 @@ for i in %{buildroot}/usr/share/gimp/2.0/icons/*; do  /usr/bin/gtk-update-icon-c
 /usr/lib64/libgimpui-2.0.so.0.1000.32
 /usr/lib64/libgimpwidgets-2.0.so.0
 /usr/lib64/libgimpwidgets-2.0.so.0.1000.32
-/usr/share/clear/optimized-elf/lib*
 
 %files libexec
 %defattr(-,root,root,-)
