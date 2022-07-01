@@ -4,7 +4,7 @@
 #
 Name     : gimp
 Version  : 2.10.32
-Release  : 97
+Release  : 98
 URL      : https://download.gimp.org/mirror/pub/gimp/v2.10/gimp-2.10.32.tar.bz2
 Source0  : https://download.gimp.org/mirror/pub/gimp/v2.10/gimp-2.10.32.tar.bz2
 Summary  : GIMP Library
@@ -4660,6 +4660,15 @@ for i in %{buildroot}/usr/share/gimp/2.0/icons/*; do  /usr/bin/gtk-update-icon-c
 /usr/include/gimp-2.0/libgimpwidgets/gimpwidgetstypes.h
 /usr/include/gimp-2.0/libgimpwidgets/gimpwidgetsutils.h
 /usr/include/gimp-2.0/libgimpwidgets/gimpzoommodel.h
+/usr/lib64/glibc-hwcaps/x86-64-v3/libgimp-2.0.so
+/usr/lib64/glibc-hwcaps/x86-64-v3/libgimpbase-2.0.so
+/usr/lib64/glibc-hwcaps/x86-64-v3/libgimpcolor-2.0.so
+/usr/lib64/glibc-hwcaps/x86-64-v3/libgimpconfig-2.0.so
+/usr/lib64/glibc-hwcaps/x86-64-v3/libgimpmath-2.0.so
+/usr/lib64/glibc-hwcaps/x86-64-v3/libgimpmodule-2.0.so
+/usr/lib64/glibc-hwcaps/x86-64-v3/libgimpthumb-2.0.so
+/usr/lib64/glibc-hwcaps/x86-64-v3/libgimpui-2.0.so
+/usr/lib64/glibc-hwcaps/x86-64-v3/libgimpwidgets-2.0.so
 /usr/lib64/libgimp-2.0.so
 /usr/lib64/libgimpbase-2.0.so
 /usr/lib64/libgimpcolor-2.0.so
@@ -5307,31 +5316,22 @@ for i in %{buildroot}/usr/share/gimp/2.0/icons/*; do  /usr/bin/gtk-update-icon-c
 /usr/lib64/gimp/2.0/modules/libdisplay-filter-color-blind.so
 /usr/lib64/gimp/2.0/modules/libdisplay-filter-gamma.so
 /usr/lib64/gimp/2.0/modules/libdisplay-filter-high-contrast.so
-/usr/lib64/glibc-hwcaps/x86-64-v3/libgimp-2.0.so
 /usr/lib64/glibc-hwcaps/x86-64-v3/libgimp-2.0.so.0
 /usr/lib64/glibc-hwcaps/x86-64-v3/libgimp-2.0.so.0.1000.32
-/usr/lib64/glibc-hwcaps/x86-64-v3/libgimpbase-2.0.so
 /usr/lib64/glibc-hwcaps/x86-64-v3/libgimpbase-2.0.so.0
 /usr/lib64/glibc-hwcaps/x86-64-v3/libgimpbase-2.0.so.0.1000.32
-/usr/lib64/glibc-hwcaps/x86-64-v3/libgimpcolor-2.0.so
 /usr/lib64/glibc-hwcaps/x86-64-v3/libgimpcolor-2.0.so.0
 /usr/lib64/glibc-hwcaps/x86-64-v3/libgimpcolor-2.0.so.0.1000.32
-/usr/lib64/glibc-hwcaps/x86-64-v3/libgimpconfig-2.0.so
 /usr/lib64/glibc-hwcaps/x86-64-v3/libgimpconfig-2.0.so.0
 /usr/lib64/glibc-hwcaps/x86-64-v3/libgimpconfig-2.0.so.0.1000.32
-/usr/lib64/glibc-hwcaps/x86-64-v3/libgimpmath-2.0.so
 /usr/lib64/glibc-hwcaps/x86-64-v3/libgimpmath-2.0.so.0
 /usr/lib64/glibc-hwcaps/x86-64-v3/libgimpmath-2.0.so.0.1000.32
-/usr/lib64/glibc-hwcaps/x86-64-v3/libgimpmodule-2.0.so
 /usr/lib64/glibc-hwcaps/x86-64-v3/libgimpmodule-2.0.so.0
 /usr/lib64/glibc-hwcaps/x86-64-v3/libgimpmodule-2.0.so.0.1000.32
-/usr/lib64/glibc-hwcaps/x86-64-v3/libgimpthumb-2.0.so
 /usr/lib64/glibc-hwcaps/x86-64-v3/libgimpthumb-2.0.so.0
 /usr/lib64/glibc-hwcaps/x86-64-v3/libgimpthumb-2.0.so.0.1000.32
-/usr/lib64/glibc-hwcaps/x86-64-v3/libgimpui-2.0.so
 /usr/lib64/glibc-hwcaps/x86-64-v3/libgimpui-2.0.so.0
 /usr/lib64/glibc-hwcaps/x86-64-v3/libgimpui-2.0.so.0.1000.32
-/usr/lib64/glibc-hwcaps/x86-64-v3/libgimpwidgets-2.0.so
 /usr/lib64/glibc-hwcaps/x86-64-v3/libgimpwidgets-2.0.so.0
 /usr/lib64/glibc-hwcaps/x86-64-v3/libgimpwidgets-2.0.so.0.1000.32
 /usr/lib64/libgimp-2.0.so.0
@@ -5352,6 +5352,7 @@ for i in %{buildroot}/usr/share/gimp/2.0/icons/*; do  /usr/bin/gtk-update-icon-c
 /usr/lib64/libgimpui-2.0.so.0.1000.32
 /usr/lib64/libgimpwidgets-2.0.so.0
 /usr/lib64/libgimpwidgets-2.0.so.0.1000.32
+/usr/share/clear/optimized-elf/other*
 
 %files libexec
 %defattr(-,root,root,-)
