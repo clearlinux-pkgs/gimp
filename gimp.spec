@@ -4,7 +4,7 @@
 #
 Name     : gimp
 Version  : 2.10.32
-Release  : 102
+Release  : 103
 URL      : https://download.gimp.org/mirror/pub/gimp/v2.10/gimp-2.10.32.tar.bz2
 Source0  : https://download.gimp.org/mirror/pub/gimp/v2.10/gimp-2.10.32.tar.bz2
 Summary  : GIMP Library
@@ -199,16 +199,16 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1656113710
+export SOURCE_DATE_EPOCH=1664887275
 unset LD_AS_NEEDED
 export GCC_IGNORE_WERROR=1
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
 export NM=gcc-nm
-export CFLAGS="$CFLAGS -O3 -Ofast -falign-functions=32 -ffat-lto-objects -flto=auto -fno-semantic-interposition -fstack-protector-strong -fzero-call-used-regs=used -mprefer-vector-width=256 "
-export FCFLAGS="$FFLAGS -O3 -Ofast -falign-functions=32 -ffat-lto-objects -flto=auto -fno-semantic-interposition -fstack-protector-strong -fzero-call-used-regs=used -mprefer-vector-width=256 "
-export FFLAGS="$FFLAGS -O3 -Ofast -falign-functions=32 -ffat-lto-objects -flto=auto -fno-semantic-interposition -fstack-protector-strong -fzero-call-used-regs=used -mprefer-vector-width=256 "
-export CXXFLAGS="$CXXFLAGS -O3 -Ofast -falign-functions=32 -ffat-lto-objects -flto=auto -fno-semantic-interposition -fstack-protector-strong -fzero-call-used-regs=used -mprefer-vector-width=256 "
+export CFLAGS="$CFLAGS -O3 -Ofast -falign-functions=32 -ffat-lto-objects -flto=auto -fno-semantic-interposition -mprefer-vector-width=256 "
+export FCFLAGS="$FFLAGS -O3 -Ofast -falign-functions=32 -ffat-lto-objects -flto=auto -fno-semantic-interposition -mprefer-vector-width=256 "
+export FFLAGS="$FFLAGS -O3 -Ofast -falign-functions=32 -ffat-lto-objects -flto=auto -fno-semantic-interposition -mprefer-vector-width=256 "
+export CXXFLAGS="$CXXFLAGS -O3 -Ofast -falign-functions=32 -ffat-lto-objects -flto=auto -fno-semantic-interposition -mprefer-vector-width=256 "
 %configure --disable-static --without-libtiff --disable-python --enable-sse --with-script-fu --enable-bundled-mypaint-brushes  --without-cairo-pdf --disable-gtk-doc-pdf --sysconfdir=/usr/share/defaults/gimp
 make  %{?_smp_mflags}
 
@@ -232,15 +232,15 @@ cd ../buildavx2;
 make %{?_smp_mflags} check || : || :
 
 %install
-export SOURCE_DATE_EPOCH=1656113710
+export SOURCE_DATE_EPOCH=1664887275
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/gimp
-cp %{_builddir}/gimp-2.10.32/COPYING %{buildroot}/usr/share/package-licenses/gimp/0dd432edfab90223f22e49c02e2124f87d6f0a56
-cp %{_builddir}/gimp-2.10.32/LICENSE %{buildroot}/usr/share/package-licenses/gimp/d0836463afc5e3d4bde884de8bff3be3998db6d1
-cp %{_builddir}/gimp-2.10.32/libgimp/COPYING %{buildroot}/usr/share/package-licenses/gimp/a393f03af92371f6aa7c379c82077fe419283aa1
-cp %{_builddir}/gimp-2.10.32/plug-ins/file-dds/COPYING %{buildroot}/usr/share/package-licenses/gimp/093f1a5009a4ff69e9075fd00aa29968778315cf
-cp %{_builddir}/gimp-2.10.32/plug-ins/script-fu/ftx/LICENSE %{buildroot}/usr/share/package-licenses/gimp/8d629cc7c615f0311a8a93c37d754d1ccb8c47cb
-cp %{_builddir}/gimp-2.10.32/plug-ins/script-fu/tinyscheme/COPYING %{buildroot}/usr/share/package-licenses/gimp/caf3c22163d024d0943740fd0c1b1c80513fea7b
+cp %{_builddir}/gimp-%{version}/COPYING %{buildroot}/usr/share/package-licenses/gimp/0dd432edfab90223f22e49c02e2124f87d6f0a56 || :
+cp %{_builddir}/gimp-%{version}/LICENSE %{buildroot}/usr/share/package-licenses/gimp/d0836463afc5e3d4bde884de8bff3be3998db6d1 || :
+cp %{_builddir}/gimp-%{version}/libgimp/COPYING %{buildroot}/usr/share/package-licenses/gimp/a393f03af92371f6aa7c379c82077fe419283aa1 || :
+cp %{_builddir}/gimp-%{version}/plug-ins/file-dds/COPYING %{buildroot}/usr/share/package-licenses/gimp/093f1a5009a4ff69e9075fd00aa29968778315cf || :
+cp %{_builddir}/gimp-%{version}/plug-ins/script-fu/ftx/LICENSE %{buildroot}/usr/share/package-licenses/gimp/8d629cc7c615f0311a8a93c37d754d1ccb8c47cb || :
+cp %{_builddir}/gimp-%{version}/plug-ins/script-fu/tinyscheme/COPYING %{buildroot}/usr/share/package-licenses/gimp/caf3c22163d024d0943740fd0c1b1c80513fea7b || :
 pushd ../buildavx2/
 %make_install_v3
 popd
