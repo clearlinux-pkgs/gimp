@@ -21,7 +21,7 @@ libgio-2.0.so.0
 libglib-2.0.so.0
 libgmodule-2.0.so.0
 libgobject-2.0.so.0
-libgs.so.9
+libgs.so.10
 libgtk-x11-2.0.so.0
 libgudev-1.0.so.0
 libharfbuzz.so.0
@@ -39,6 +39,7 @@ libpangoft2-1.0.so.0
 libpng16.so.16
 libpoppler-glib.so.8
 librsvg-2.so.2
+libsharpyuv.so.0
 libtiff.so.5
 libunwind.so.8
 libwebp.so.7

@@ -4,7 +4,7 @@
 #
 Name     : gimp
 Version  : 2.10.32
-Release  : 105
+Release  : 106
 URL      : https://download.gimp.org/mirror/pub/gimp/v2.10/gimp-2.10.32.tar.bz2
 Source0  : https://download.gimp.org/mirror/pub/gimp/v2.10/gimp-2.10.32.tar.bz2
 Summary  : GIMP Library
@@ -80,6 +80,9 @@ BuildRequires : tiff-dev
 BuildRequires : webkitgtk-dev
 BuildRequires : xdg-utils
 BuildRequires : xvfb-run
+# Suppress stripping binaries
+%define __strip /bin/true
+%define debug_package %{nil}
 Patch1: fastmath.patch
 Patch2: buffer.patch
 
@@ -199,16 +202,16 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1664942290
+export SOURCE_DATE_EPOCH=1676502611
 unset LD_AS_NEEDED
 export GCC_IGNORE_WERROR=1
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
 export NM=gcc-nm
-export CFLAGS="$CFLAGS -O3 -Ofast -falign-functions=32 -ffat-lto-objects -flto=auto -fno-semantic-interposition -mprefer-vector-width=256 "
-export FCFLAGS="$FFLAGS -O3 -Ofast -falign-functions=32 -ffat-lto-objects -flto=auto -fno-semantic-interposition -mprefer-vector-width=256 "
-export FFLAGS="$FFLAGS -O3 -Ofast -falign-functions=32 -ffat-lto-objects -flto=auto -fno-semantic-interposition -mprefer-vector-width=256 "
-export CXXFLAGS="$CXXFLAGS -O3 -Ofast -falign-functions=32 -ffat-lto-objects -flto=auto -fno-semantic-interposition -mprefer-vector-width=256 "
+export CFLAGS="$CFLAGS -O3 -Ofast -falign-functions=32 -fdebug-types-section -femit-struct-debug-baseonly -ffat-lto-objects -flto=auto -fno-semantic-interposition -g1 -gno-column-info -gno-variable-location-views -gz "
+export FCFLAGS="$FFLAGS -O3 -Ofast -falign-functions=32 -fdebug-types-section -femit-struct-debug-baseonly -ffat-lto-objects -flto=auto -fno-semantic-interposition -g1 -gno-column-info -gno-variable-location-views -gz "
+export FFLAGS="$FFLAGS -O3 -Ofast -falign-functions=32 -fdebug-types-section -femit-struct-debug-baseonly -ffat-lto-objects -flto=auto -fno-semantic-interposition -g1 -gno-column-info -gno-variable-location-views -gz "
+export CXXFLAGS="$CXXFLAGS -O3 -Ofast -falign-functions=32 -fdebug-types-section -femit-struct-debug-baseonly -ffat-lto-objects -flto=auto -fno-semantic-interposition -g1 -gno-column-info -gno-variable-location-views -gz "
 %configure --disable-static --without-libtiff --disable-python --enable-sse --with-script-fu --enable-bundled-mypaint-brushes  --without-cairo-pdf --disable-gtk-doc-pdf --sysconfdir=/usr/share/defaults/gimp
 make  %{?_smp_mflags}
 
@@ -232,7 +235,7 @@ cd ../buildavx2;
 make %{?_smp_mflags} check || : || :
 
 %install
-export SOURCE_DATE_EPOCH=1664942290
+export SOURCE_DATE_EPOCH=1676502611
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/gimp
 cp %{_builddir}/gimp-%{version}/COPYING %{buildroot}/usr/share/package-licenses/gimp/0dd432edfab90223f22e49c02e2124f87d6f0a56 || :
