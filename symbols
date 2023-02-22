@@ -223,6 +223,7 @@ libgimp-2.0.so.0:gimp_drawable_edit_gradient_fill
 libgimp-2.0.so.0:gimp_drawable_edit_stroke_item
 libgimp-2.0.so.0:gimp_drawable_edit_stroke_selection
 libgimp-2.0.so.0:gimp_drawable_equalize
+libgimp-2.0.so.0:gimp_drawable_extract_component
 libgimp-2.0.so.0:gimp_drawable_fill
 libgimp-2.0.so.0:gimp_drawable_flush
 libgimp-2.0.so.0:gimp_drawable_foreground_extract
@@ -276,6 +277,7 @@ libgimp-2.0.so.0:gimp_drawable_set_name
 libgimp-2.0.so.0:gimp_drawable_set_pixel
 libgimp-2.0.so.0:gimp_drawable_set_tattoo
 libgimp-2.0.so.0:gimp_drawable_set_visible
+libgimp-2.0.so.0:gimp_drawable_shadows_highlights
 libgimp-2.0.so.0:gimp_drawable_threshold
 libgimp-2.0.so.0:gimp_drawable_transform_2d
 libgimp-2.0.so.0:gimp_drawable_transform_2d_default
