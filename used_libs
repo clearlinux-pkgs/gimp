@@ -39,8 +39,7 @@ libpangoft2-1.0.so.0
 libpng16.so.16
 libpoppler-glib.so.8
 librsvg-2.so.2
-libsharpyuv.so.0
-libtiff.so.5
+libtiff.so.6
 libunwind.so.8
 libwebp.so.7
 libwebpdemux.so.2
