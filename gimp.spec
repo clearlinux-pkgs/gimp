@@ -7,7 +7,7 @@
 #
 Name     : gimp
 Version  : 2.10.36
-Release  : 121
+Release  : 122
 URL      : https://download.gimp.org/mirror/pub/gimp/v2.10/gimp-2.10.36.tar.bz2
 Source0  : https://download.gimp.org/mirror/pub/gimp/v2.10/gimp-2.10.36.tar.bz2
 Summary  : GIMP Library
