@@ -1,0 +1,13 @@
+--- gimp-2.10.38/plug-ins/file-tiff/file-tiff-load.c~	2024-05-03 00:33:35.000000000 +0000
++++ gimp-2.10.38/plug-ins/file-tiff/file-tiff-load.c	2024-05-03 14:58:54.216325040 +0000
+@@ -1301,8 +1301,8 @@
+ 
+       /* any resolution info in the file? */
+       {
+-        gfloat   xres = 72.0;
+-        gfloat   yres = 72.0;
++        gdouble   xres = 72.0;
++        gdouble   yres = 72.0;
+         gushort  read_unit;
+         GimpUnit unit = GIMP_UNIT_PIXEL; /* invalid unit */
+ 
