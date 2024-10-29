@@ -22,6 +22,6 @@ poppler
 poppler-data-clr-rename-dev
 poppler-dev
 tiff-dev
-webkitgtk-dev
+webkitgtk60-dev
 xdg-utils
 xvfb-run
