@@ -1,0 +1,12 @@
+/etc/:
+/etc/gimp/3.0:
+/etc/gimp:
+3.0
+controllerrc
+gimp
+gimp.css
+gimprc
+sessionrc
+templaterc
+toolrc
+unitrc

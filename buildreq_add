@@ -25,3 +25,5 @@ tiff-dev
 webkitgtk60-dev
 xdg-utils
 xvfb-run
+pygobject-dev
+gjs-dev

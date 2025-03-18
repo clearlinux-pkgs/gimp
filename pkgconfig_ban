@@ -19,3 +19,9 @@ pycairo
 pygtk-2.0
 webkit-1.0
 libjxl
+babl
+openexr
+libmng
+libilbm
+libjxl_threads
+libiff

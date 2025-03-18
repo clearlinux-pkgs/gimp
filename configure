@@ -1,1 +1,0 @@
---without-libtiff --disable-python --enable-sse --with-script-fu --enable-bundled-mypaint-brushes  --without-cairo-pdf --disable-gtk-doc-pdf --sysconfdir=/usr/share/defaults/gimp
