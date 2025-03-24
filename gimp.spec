@@ -6,10 +6,10 @@
 # autospec commit: fbbd4e3
 #
 Name     : gimp
-Version  : 3.0.0
-Release  : 133
-URL      : https://download.gimp.org/gimp/v3.0/gimp-3.0.0.tar.xz
-Source0  : https://download.gimp.org/gimp/v3.0/gimp-3.0.0.tar.xz
+Version  : 3.0.2
+Release  : 134
+URL      : https://download.gimp.org/gimp/v3.0/gimp-3.0.2.tar.xz
+Source0  : https://download.gimp.org/gimp/v3.0/gimp-3.0.2.tar.xz
 Summary  : No detailed summary available
 Group    : Development/Tools
 License  : BSD-3-Clause GPL-2.0 GPL-3.0 LGPL-3.0 MIT
@@ -48,11 +48,9 @@ BuildRequires : mypaint-brushes
 BuildRequires : mypaint-brushes-dev
 BuildRequires : perl
 BuildRequires : pkgconfig(appstream-glib)
-BuildRequires : pkgconfig(babl-0.1)
 BuildRequires : pkgconfig(cfitsio)
 BuildRequires : pkgconfig(exiv2)
 BuildRequires : pkgconfig(gexiv2)
-BuildRequires : pkgconfig(gobject-introspection-1.0)
 BuildRequires : pkgconfig(gtk+-2.0)
 BuildRequires : pkgconfig(gudev-1.0)
 BuildRequires : pkgconfig(ice)
@@ -168,12 +166,12 @@ man components for the gimp package.
 
 
 %prep
-%setup -q -n gimp-3.0.0
-cd %{_builddir}/gimp-3.0.0
+%setup -q -n gimp-3.0.2
+cd %{_builddir}/gimp-3.0.2
 %patch -P 1 -p1
 %patch -P 2 -p1
 pushd ..
-cp -a gimp-3.0.0 buildavx2
+cp -a gimp-3.0.2 buildavx2
 popd
 
 %build
@@ -181,7 +179,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1742314808
+export SOURCE_DATE_EPOCH=1742839464
 unset LD_AS_NEEDED
 export GCC_IGNORE_WERROR=1
 export AR=gcc-ar
@@ -1350,6 +1348,10 @@ for i in %{buildroot}/usr/share/gimp/*/icons/*; do  /usr/bin/gtk-update-icon-cac
 /usr/share/gimp/3.0/icons/Default/scalable/apps/gimp-text-dir-ttb-rtl.svg
 /usr/share/gimp/3.0/icons/Default/scalable/apps/gimp-text-layer-symbolic.svg
 /usr/share/gimp/3.0/icons/Default/scalable/apps/gimp-text-layer.svg
+/usr/share/gimp/3.0/icons/Default/scalable/apps/gimp-toggle-off-symbolic.svg
+/usr/share/gimp/3.0/icons/Default/scalable/apps/gimp-toggle-off.svg
+/usr/share/gimp/3.0/icons/Default/scalable/apps/gimp-toggle-on-symbolic.svg
+/usr/share/gimp/3.0/icons/Default/scalable/apps/gimp-toggle-on.svg
 /usr/share/gimp/3.0/icons/Default/scalable/apps/gimp-toilet-paper-symbolic.svg
 /usr/share/gimp/3.0/icons/Default/scalable/apps/gimp-toilet-paper.svg
 /usr/share/gimp/3.0/icons/Default/scalable/apps/gimp-tool-airbrush-symbolic.svg
@@ -1981,6 +1983,10 @@ for i in %{buildroot}/usr/share/gimp/*/icons/*; do  /usr/bin/gtk-update-icon-cac
 /usr/share/gimp/3.0/icons/Legacy/scalable/apps/gimp-shred.svg
 /usr/share/gimp/3.0/icons/Legacy/scalable/apps/gimp-smartphone.svg
 /usr/share/gimp/3.0/icons/Legacy/scalable/apps/gimp-symmetry.svg
+/usr/share/gimp/3.0/icons/Legacy/scalable/apps/gimp-toggle-off-symbolic.svg
+/usr/share/gimp/3.0/icons/Legacy/scalable/apps/gimp-toggle-off.svg
+/usr/share/gimp/3.0/icons/Legacy/scalable/apps/gimp-toggle-on-symbolic.svg
+/usr/share/gimp/3.0/icons/Legacy/scalable/apps/gimp-toggle-on.svg
 /usr/share/gimp/3.0/icons/Legacy/scalable/apps/gimp-tool-airbrush.svg
 /usr/share/gimp/3.0/icons/Legacy/scalable/apps/gimp-tool-align.svg
 /usr/share/gimp/3.0/icons/Legacy/scalable/apps/gimp-tool-blur.svg
@@ -5699,16 +5705,16 @@ for i in %{buildroot}/usr/share/gimp/*/icons/*; do  /usr/bin/gtk-update-icon-cac
 /V3/usr/lib64/gimp/3.0/modules/libdisplay-filter-color-blind.so
 /V3/usr/lib64/gimp/3.0/modules/libdisplay-filter-gamma.so
 /V3/usr/lib64/gimp/3.0/modules/libdisplay-filter-high-contrast.so
-/V3/usr/lib64/libgimp-3.0.so.0.0.0
-/V3/usr/lib64/libgimp-scriptfu-3.0.so.0.0.0
-/V3/usr/lib64/libgimpbase-3.0.so.0.0.0
-/V3/usr/lib64/libgimpcolor-3.0.so.0.0.0
-/V3/usr/lib64/libgimpconfig-3.0.so.0.0.0
-/V3/usr/lib64/libgimpmath-3.0.so.0.0.0
-/V3/usr/lib64/libgimpmodule-3.0.so.0.0.0
-/V3/usr/lib64/libgimpthumb-3.0.so.0.0.0
-/V3/usr/lib64/libgimpui-3.0.so.0.0.0
-/V3/usr/lib64/libgimpwidgets-3.0.so.0.0.0
+/V3/usr/lib64/libgimp-3.0.so.0.0.2
+/V3/usr/lib64/libgimp-scriptfu-3.0.so.0.0.2
+/V3/usr/lib64/libgimpbase-3.0.so.0.0.2
+/V3/usr/lib64/libgimpcolor-3.0.so.0.0.2
+/V3/usr/lib64/libgimpconfig-3.0.so.0.0.2
+/V3/usr/lib64/libgimpmath-3.0.so.0.0.2
+/V3/usr/lib64/libgimpmodule-3.0.so.0.0.2
+/V3/usr/lib64/libgimpthumb-3.0.so.0.0.2
+/V3/usr/lib64/libgimpui-3.0.so.0.0.2
+/V3/usr/lib64/libgimpwidgets-3.0.so.0.0.2
 /usr/lib64/gimp/3.0/modules/libcolor-selector-cmyk.so
 /usr/lib64/gimp/3.0/modules/libcolor-selector-water.so
 /usr/lib64/gimp/3.0/modules/libcolor-selector-wheel.so
@@ -5720,25 +5726,25 @@ for i in %{buildroot}/usr/share/gimp/*/icons/*; do  /usr/bin/gtk-update-icon-cac
 /usr/lib64/gimp/3.0/modules/libdisplay-filter-gamma.so
 /usr/lib64/gimp/3.0/modules/libdisplay-filter-high-contrast.so
 /usr/lib64/libgimp-3.0.so.0
-/usr/lib64/libgimp-3.0.so.0.0.0
+/usr/lib64/libgimp-3.0.so.0.0.2
 /usr/lib64/libgimp-scriptfu-3.0.so.0
-/usr/lib64/libgimp-scriptfu-3.0.so.0.0.0
+/usr/lib64/libgimp-scriptfu-3.0.so.0.0.2
 /usr/lib64/libgimpbase-3.0.so.0
-/usr/lib64/libgimpbase-3.0.so.0.0.0
+/usr/lib64/libgimpbase-3.0.so.0.0.2
 /usr/lib64/libgimpcolor-3.0.so.0
-/usr/lib64/libgimpcolor-3.0.so.0.0.0
+/usr/lib64/libgimpcolor-3.0.so.0.0.2
 /usr/lib64/libgimpconfig-3.0.so.0
-/usr/lib64/libgimpconfig-3.0.so.0.0.0
+/usr/lib64/libgimpconfig-3.0.so.0.0.2
 /usr/lib64/libgimpmath-3.0.so.0
-/usr/lib64/libgimpmath-3.0.so.0.0.0
+/usr/lib64/libgimpmath-3.0.so.0.0.2
 /usr/lib64/libgimpmodule-3.0.so.0
-/usr/lib64/libgimpmodule-3.0.so.0.0.0
+/usr/lib64/libgimpmodule-3.0.so.0.0.2
 /usr/lib64/libgimpthumb-3.0.so.0
-/usr/lib64/libgimpthumb-3.0.so.0.0.0
+/usr/lib64/libgimpthumb-3.0.so.0.0.2
 /usr/lib64/libgimpui-3.0.so.0
-/usr/lib64/libgimpui-3.0.so.0.0.0
+/usr/lib64/libgimpui-3.0.so.0.0.2
 /usr/lib64/libgimpwidgets-3.0.so.0
-/usr/lib64/libgimpwidgets-3.0.so.0.0.0
+/usr/lib64/libgimpwidgets-3.0.so.0.0.2
 
 %files libexec
 %defattr(-,root,root,-)

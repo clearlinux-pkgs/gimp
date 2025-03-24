@@ -1,4 +1,4 @@
-3.0.0
+3.0.2
 bison
 exiv2-dev
 flex
@@ -7,11 +7,9 @@ libgudev-dev
 librsvg-dev
 libxslt-bin
 pkgconfig(appstream-glib)
-pkgconfig(babl-0.1)
 pkgconfig(cfitsio)
 pkgconfig(exiv2)
 pkgconfig(gexiv2)
-pkgconfig(gobject-introspection-1.0)
 pkgconfig(gudev-1.0)
 pkgconfig(iso-codes)
 pkgconfig(liblzma)
